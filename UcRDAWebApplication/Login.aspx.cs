@@ -7,9 +7,24 @@ using System.Web.UI.WebControls;
 
 namespace UcRDAWebApplication
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Login1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void submitbtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void txtUserName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void txtPassword_TextChanged(object sender, EventArgs e)
         {
 
         }
