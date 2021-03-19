@@ -105,6 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AssignedTask.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -121,12 +122,15 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Image\finalise design.png" />
+    <Content Include="Logout.aspx" />
+    <Content Include="Workers.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Image\front.jpg" />
-    <Content Include="Interface\Admin\AdminHome.aspx" />
-    <Content Include="Interface\Worker\WorkerHome.aspx" />
+    <Content Include="AdminHome.aspx" />
+    <Content Include="Issues.aspx" />
+    <Content Include="WorkerHome.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="Login1.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -164,6 +168,13 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="AssignedTask.aspx.cs">
+      <DependentUpon>AssignedTask.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AssignedTask.aspx.designer.cs">
+      <DependentUpon>AssignedTask.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\ApproveController.cs" />
     <Compile Include="Controllers\IssueController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -171,18 +182,32 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Interface\Admin\AdminHome.aspx.cs">
+    <Compile Include="AdminHome.aspx.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Interface\Admin\AdminHome.aspx.designer.cs">
+    <Compile Include="AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Interface\Worker\WorkerHome.aspx.cs">
+    <Compile Include="Issues.aspx.cs">
+      <DependentUpon>Issues.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Issues.aspx.designer.cs">
+      <DependentUpon>Issues.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WorkerHome.aspx.cs">
       <DependentUpon>WorkerHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Interface\Worker\WorkerHome.aspx.designer.cs">
+    <Compile Include="WorkerHome.aspx.designer.cs">
       <DependentUpon>WorkerHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
@@ -191,13 +216,6 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Login1.aspx.cs">
-      <DependentUpon>Login1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login1.aspx.designer.cs">
-      <DependentUpon>Login1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Approve.cs" />
     <Compile Include="Models\Issue.cs" />
@@ -224,6 +242,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Workers.aspx.cs">
+      <DependentUpon>Workers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Workers.aspx.designer.cs">
+      <DependentUpon>Workers.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

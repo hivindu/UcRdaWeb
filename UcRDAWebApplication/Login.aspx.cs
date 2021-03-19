@@ -13,10 +13,12 @@ namespace UcRDAWebApplication
         {
 
         }
-
+        
         protected void submitbtn_Click(object sender, EventArgs e)
         {
-
+            Session["type"] = Convert.ToString(txtUserName.Text);
+            Session["username"] = Convert.ToString(txtPassword.Text);
+            Response.Redirect("AdminHome.aspx");
         }
 
         protected void txtUserName_TextChanged(object sender, EventArgs e)
