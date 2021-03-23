@@ -18,7 +18,7 @@
                 <nav class="navbar navbar-inverse">
                   <div class="container-fluid">
                     <div class="navbar-header">
-                      <a class="navbar-brand" href="#">WebSiteName</a>
+                      <a class="navbar-brand" href="#">MyCity</a>
                     </div>
                     <ul class="nav navbar-nav pull-right">
                       <li ><a href="AdminHome.aspx">Home</a></li>
@@ -37,7 +37,49 @@
                   </div>
                 </nav>
                 <div class="container">
-                    <asp:GridView ID="dgIssues" runat="server"></asp:GridView>
+                    <%
+                        if (type == "rda")
+                        {
+                    %>
+                        <asp:GridView ID="dgIssues" runat="server" AutoGenerateColumns="False" CssClass="table table-hover">
+                            <Columns>
+                                <asp:BoundField DataField="Id" Visible="False" />
+                                <asp:ImageField AccessibleHeaderText="Image" HeaderText="Image">
+                                </asp:ImageField>
+                                <asp:BoundField AccessibleHeaderText="Province" DataField="Province" HeaderText="Province" />
+                                <asp:BoundField DataField="Date" HeaderText="Date" />
+                                <asp:BoundField DataField="RoadType" HeaderText="Road Type" />
+                                <asp:ButtonField ButtonType="Button" Text="Assign To Worker" />
+                            </Columns>
+                        </asp:GridView>
+                    <%  }
+                        else
+                        {
+                    %>
+                        <asp:GridView ID="dgIssuesRda" runat="server" AutoGenerateColumns="False" CssClass="table table-hover">
+                            <Columns>
+                                <asp:BoundField DataField="Id" Visible="False" />
+                                <asp:ImageField AccessibleHeaderText="Image" HeaderText="Image">
+                                </asp:ImageField>
+                                <asp:BoundField AccessibleHeaderText="Province" DataField="Province" HeaderText="Province" />
+                                <asp:BoundField DataField="Date" HeaderText="Date" />
+                                <asp:BoundField DataField="RoadType" HeaderText="Road Type" />
+                                <asp:ButtonField ButtonType="Button" CommandName="Assign" Text="Assign To RDA" />
+ 
+                            </Columns>
+                        </asp:GridView>
+                    <%
+                        }
+                    %>
+                    <div class="row">
+                        <div>
+                            <asp:Label ID="lblProvince" runat="server" Text="Province"></asp:Label> : <asp:Label ID="lblProvinceValue" runat="server" Text=""></asp:Label>
+                        </div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
                 </div>
         <%}
             else {
