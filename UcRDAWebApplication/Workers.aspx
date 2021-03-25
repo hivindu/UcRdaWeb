@@ -7,6 +7,41 @@
     <title>Workers List</title>
     <link href="Content/bootstrap.css" rel="stylesheet"/>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <style>
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 6px 6px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -36,6 +71,21 @@
                     </ul>
                   </div>
                 </nav>
+                <div class="container-fluid">
+                    <div class="sidenav">
+                      <a href="#">About</a>
+                      <a href="#">Services</a>
+                      <a href="#">Clients</a>
+                      <a href="#">Contact</a>
+                    </div>
+                    <div class="container main">
+                        <div class="row">
+                            <div class="col-md-12" style="background-color:aquamarine;">
+                                test
+                            </div>
+                        </div>
+                    </div>
+                </div>
         <%}
             else {
                 Response.Redirect("Login.aspx");
