@@ -7,6 +7,7 @@
     <title>Issues List</title>
     <link href="Content/bootstrap.css" rel="stylesheet"/>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -71,14 +72,26 @@
                     <%
                         }
                     %>
-                    <div class="row">
+                    <div class="row" style="box-shadow:0px 10px 10px 0px;padding:5px;">
+                        <h3>Issue Details <i class="fa fa-info-circle" aria-hidden="false" style="font-size:14px"></i></h3>
+                        <div>
+                            <asp:Label ID="lblImage" runat="server" Text="Image"></asp:Label> : <asp:Image ID="IssueImage" runat="server" />
+                        </div>
                         <div>
                             <asp:Label ID="lblProvince" runat="server" Text="Province"></asp:Label> : <asp:Label ID="lblProvinceValue" runat="server" Text=""></asp:Label>
                         </div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                        <div>
+                            <asp:Label ID="lblDate" runat="server" Text="Date"></asp:Label> : <asp:Label ID="lblDateValue" runat="server" Text=""></asp:Label>
+                        </div>
+                        <div>
+                            <asp:Label ID="lblRoadType" runat="server" Text="Road Type"></asp:Label> : <asp:Label ID="lblRoadTypeValue" runat="server" Text=""></asp:Label>
+                        </div>
+                        <div>
+                            <asp:Label ID="lblIssueType" runat="server" Text="Issue Type"></asp:Label> : <asp:Label ID="lblIssueTypeValue" runat="server" Text=""></asp:Label>
+                        </div>
+                        <div>
+                            <asp:Label ID="lblLocation" runat="server" Text="Location"></asp:Label>
+                        </div>
                     </div>
                 </div>
         <%}
