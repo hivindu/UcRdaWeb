@@ -5,8 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Home Page</title>
-    <link href="Content/bootstrap.css" rel="stylesheet"/>
+     <link href="Content/bootstrap.css" rel="stylesheet"/>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -38,6 +39,14 @@
                 </nav>
 
               <div class="container">
+                  <section class="content-header">
+                              <h1>
+                                Dashboard
+                              </h1>
+                              <ol class="breadcrumb">
+                                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                              </ol>
+                            </section>
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-4">

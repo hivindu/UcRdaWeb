@@ -42,6 +42,15 @@
                         if (type == "rda")
                         {
                     %>
+                     <section class="content-header">
+                              <h1>
+                                Issue List
+                              </h1>
+                              <ol class="breadcrumb">
+                                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                                <li class="active">Issues List</li>
+                              </ol>
+                            </section>
                         <asp:GridView ID="dgIssues" runat="server" AutoGenerateColumns="False" CssClass="table table-hover">
                             <Columns>
                                 <asp:BoundField DataField="Id" Visible="False" />
@@ -57,6 +66,15 @@
                         else
                         {
                     %>
+                     <section class="content-header">
+                              <h1>
+                                Issue List
+                              </h1>
+                              <ol class="breadcrumb">
+                                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                                <li class="active">Issue List</li>
+                              </ol>
+                            </section>
                         <asp:GridView ID="dgIssuesRda" runat="server" AutoGenerateColumns="False" CssClass="table table-hover">
                             <Columns>
                                 <asp:BoundField DataField="Id" Visible="False" />

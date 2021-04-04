@@ -7,41 +7,9 @@
     <title>Workers List</title>
     <link href="Content/bootstrap.css" rel="stylesheet"/>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <style>
-
-.sidenav {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-.sidenav a {
-  padding: 6px 6px 6px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-}
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.main {
-  margin-left: 200px; /* Same as the width of the sidenav */
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-</style>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -50,11 +18,9 @@
              if (uname != "")
              {
         %>
-        <nav class="navbar navbar-inverse">
+               <nav class="navbar navbar-inverse">
                   <div class="container-fluid">
-                    <div class="navbar-header">
-                      <a class="navbar-brand" href="#">MyCity</a>
-                    </div>
+                    
                     <ul class="nav navbar-nav pull-right">
                       <li ><a href="AdminHome.aspx">Home</a></li>
                       <li><a href="Issues.aspx">Issues</a></li>
@@ -71,21 +37,95 @@
                     </ul>
                   </div>
                 </nav>
-                <div class="container-fluid">
-                    <div class="sidenav">
-                      <a href="#">About</a>
-                      <a href="#">Services</a>
-                      <a href="#">Clients</a>
-                      <a href="#">Contact</a>
-                    </div>
-                    <div class="container main">
+          
+                        
+                        <div class="container">
+                            <section class="content-header">
+                              <h1>
+                                Workers List
+                              </h1>
+                              <ol class="breadcrumb">
+                                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                                <li class="active">Workers List</li>
+                              </ol>
+                            </section>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <br />
+                                    
+                                    <h3> <asp:Label ID="lblHeader" runat="server" Text="Details"></asp:Label></h3>
+                                    
+                                    <br />
+                                    <table border="0">
+                                        <tr style="margin-bottom:2px;">
+                                            <td >Name:</td>
+                                            <td>:</td>
+                                            <td><asp:TextBox ID="txtName" runat="server"></asp:TextBox></td>
+                                        </tr>
+                                        <tr style="margin-bottom:2px;">
+                                            <td>NIC</td>
+                                            <td>:</td>
+                                            <td><asp:TextBox ID="txtNic" runat="server"></asp:TextBox></td>
+                                        </tr>
+                                        <tr style="margin-bottom:2px;">
+                                            <td>Works In</td>
+                                            <td>:</td>
+                                            <td>
+                                                <asp:DropDownList ID="dlWorksIn" runat="server">
+                                                    <asp:ListItem>UC</asp:ListItem>
+                                                    <asp:ListItem>RDA</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </td>
+                                        </tr>
+                                        <tr style="margin-bottom:2px;">
+                                            <td>Location</td>
+                                            <td>:</td>
+                                            <td><asp:TextBox ID="txtLocation" runat="server"></asp:TextBox></td>
+                                        </tr>
+                                        <tr style="margin-bottom:2px;">
+                                            <td>Password</td>
+                                            <td style="align-content:center">:</td>
+                                            <td><asp:TextBox ID="txtPassword" runat="server"></asp:TextBox></td>
+                                        </tr>
+                                        <tr style="margin-bottom:2px;">
+                                            <td>Type</td>
+                                            <td>:</td>
+                                            <td><asp:DropDownList ID="DropDownList1" runat="server">
+                                                <asp:ListItem Value="0">Admin</asp:ListItem>
+                                                <asp:ListItem Value="1">Worker</asp:ListItem>
+                                                </asp:DropDownList></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" /></td>
+                                            <td>
+                                                <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" /></td>
+                                            <td>
+                                                <asp:Button ID="btnDelete" runat="server" Text="Dalete" OnClick="btnDelete_Click" /></td>
+                                        </tr>
+
+                                    </table>
+                                   
+                                </div>
+                            </div>
                         <div class="row">
-                            <div class="col-md-12" style="background-color:aquamarine;">
-                                test
+                            <div class="col-md-12">
+                                <div class="box">
+                                    
+                                    <div class="box-body">
+                                            <asp:GridView ID="dgWorkers" runat="server">
+                                                <Columns>
+                                                    <asp:BoundField AccessibleHeaderText="Id" DataField="Id" HeaderText="Id" Visible="False" />
+                                                    <asp:BoundField AccessibleHeaderText="Name" DataField="Name" HeaderText="Name" />
+                                                    <asp:BoundField AccessibleHeaderText="NIC" HeaderText="NIC" />
+                                                </Columns>
+                                            </asp:GridView>
+                                        </div>
+                                    </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                       </div>
+
         <%}
             else {
                 Response.Redirect("Login.aspx");
