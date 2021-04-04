@@ -31,8 +31,13 @@
             <center>
                 <img src="Image/finalise design.png" style="" /><br/>
                 <asp:Label ID="Label1" runat="server" Text="Login" style="margin-bottom:10px;"></asp:Label><br />
-                <asp:TextBox ID="txtUserName" runat="server" class="form-text" style="border-radius:15px; margin-bottom:2%" OnTextChanged="txtUserName_TextChanged" CausesValidation="True"></asp:TextBox><br />
-                <asp:TextBox ID="txtPassword" runat="server" class="form-text" style="border-radius:15px; margin-bottom:2%" TextMode="Password" OnTextChanged="txtPassword_TextChanged"></asp:TextBox><br />
+                <asp:TextBox ID="txtUserName" runat="server" class="form-text" style="border-radius:15px; margin-bottom:2%" OnTextChanged="txtUserName_TextChanged" CausesValidation="True" ValidateRequestMode="Enabled"></asp:TextBox><br />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtUserName" Display="Dynamic" ErrorMessage="*Required" Font-Bold="True" ForeColor="Red" ToolTip="To Login Username Is required"></asp:RequiredFieldValidator>
+                <br />
+                <asp:TextBox ID="txtPassword" runat="server" class="form-text" style="border-radius:15px; margin-bottom:2%" TextMode="Password" OnTextChanged="txtPassword_TextChanged"></asp:TextBox>
+                <br />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPassword" Display="Dynamic" ErrorMessage="*Required" Font-Bold="True" ForeColor="Red" ToolTip="To Login Password Is required"></asp:RequiredFieldValidator>
+                <br />
                 <asp:Button ID="submitbtn" runat="server" Text="Login" style="border-radius:25px;border:0px;box-shadow:0px 10px 10px 0px;color:white;padding:10px;width:100px;margin-bottom:10px;background-color:purple;" CssClass="btn" OnClick="submitbtn_Click"/>
             </center>
          </div>
