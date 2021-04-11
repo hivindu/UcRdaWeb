@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using UcRDAWebApplication.Controllers;
+using UcRDAWebApplication.Models;
 
 namespace UcRDAWebApplication
 {
@@ -22,14 +23,31 @@ namespace UcRDAWebApplication
             string nic= Convert.ToString(txtUserName.Text);
             string pw = Convert.ToString(txtPassword.Text);
 
-            bool res = uc.LoginValidation(nic, pw);
+            Users user = uc.LoginValidation(nic, pw);
 
-            if (res)
+            if (user!= null)
             {
-
-                Session["type"] = Convert.ToString(txtUserName.Text);
-                Session["username"] = Convert.ToString(txtPassword.Text);
-                Response.Redirect("AdminHome.aspx");
+                Session["NIC"] =user.NIC ;
+                Session["type"] = user.Type;
+                Session["username"] = user.Name;
+                Session["Work"] = user.Work;
+                Session["area"] = user.LocationArea;
+                if (user.Work < 1)
+                {
+                    Session["type"] = "UC";
+                    Response.Redirect("AdminHome.aspx");
+                }
+                else {
+                    Session["type"] = "rda";
+                    if (user.Type != 0)
+                    {
+                        Response.Redirect("WorkerHome.aspx");
+                    }
+                    else {
+                        Response.Redirect("AdminHome.aspx");
+                    }
+                }
+                
             }
             else 
             {

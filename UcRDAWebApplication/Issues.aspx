@@ -75,10 +75,10 @@
                                 <li class="active">Issue List</li>
                               </ol>
                             </section>
-                        <asp:GridView ID="dgIssuesRda" runat="server" AutoGenerateColumns="False" CssClass="table table-hover">
+                        <asp:GridView ID="dgIssuesRda" runat="server" AutoGenerateColumns="False" AutoGenerateSelectButton="True" CssClass="table table-hover" OnSelectedIndexChanged="dgIssuesRda_SelectedIndexChanged" OnSelectedIndexChanging="dgIssuesRda_SelectedIndexChanging" SelectedIndex="0">
                             <Columns>
-                                <asp:BoundField DataField="Id" Visible="False" />
-                                <asp:ImageField AccessibleHeaderText="Image" HeaderText="Image">
+                                <asp:BoundField DataField="Id" />
+                                <asp:ImageField AccessibleHeaderText="Image" HeaderText="Image" DataAlternateTextField="Picture" DataImageUrlField="Image">
                                 </asp:ImageField>
                                 <asp:BoundField AccessibleHeaderText="Province" DataField="Province" HeaderText="Province" />
                                 <asp:BoundField DataField="Date" HeaderText="Date" />
@@ -92,22 +92,22 @@
                     %>
                     <div class="row" style="box-shadow:0px 10px 10px 0px;padding:5px;">
                         <h3>Issue Details <i class="fa fa-info-circle" aria-hidden="false" style="font-size:14px"></i></h3>
-                        <div>
-                            <asp:Label ID="lblImage" runat="server" Text="Image"></asp:Label> : <asp:Image ID="IssueImage" runat="server" />
+                        <div style="margin-bottom:2px;">
+                            <asp:Label ID="lblImage" runat="server" Text="Image"></asp:Label> : <asp:Image ID="IssueImage" runat="server" OnDataBinding="dgIssuesRda_SelectedIndexChanged" />
                         </div>
-                        <div>
+                        <div style="margin-bottom:2px;">
                             <asp:Label ID="lblProvince" runat="server" Text="Province"></asp:Label> : <asp:Label ID="lblProvinceValue" runat="server" Text=""></asp:Label>
                         </div>
-                        <div>
+                        <div style="margin-bottom:2px;">
                             <asp:Label ID="lblDate" runat="server" Text="Date"></asp:Label> : <asp:Label ID="lblDateValue" runat="server" Text=""></asp:Label>
                         </div>
-                        <div>
+                        <div style="margin-bottom:2px;">
                             <asp:Label ID="lblRoadType" runat="server" Text="Road Type"></asp:Label> : <asp:Label ID="lblRoadTypeValue" runat="server" Text=""></asp:Label>
                         </div>
-                        <div>
+                        <div style="margin-bottom:2px;">
                             <asp:Label ID="lblIssueType" runat="server" Text="Issue Type"></asp:Label> : <asp:Label ID="lblIssueTypeValue" runat="server" Text=""></asp:Label>
                         </div>
-                        <div>
+                        <div style="margin-bottom:2px;">
                             <asp:Label ID="lblLocation" runat="server" Text="Location"></asp:Label>
                         </div>
                     </div>

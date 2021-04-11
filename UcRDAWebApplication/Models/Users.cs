@@ -5,7 +5,7 @@ using System.Web;
 
 namespace UcRDAWebApplication.Models
 {
-    public class User
+    public class Users
     {
         public string Id { get; set; }
 

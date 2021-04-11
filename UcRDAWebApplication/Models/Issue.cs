@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 
@@ -18,5 +19,7 @@ namespace UcRDAWebApplication.Models
         public string RoadType { get; set; }
         public int IssueType { get; set; }
         public string AdminArea { get; set; }
+        public Image Picture { get; set; }
+        public string Path { get; set; }
     }
 }
