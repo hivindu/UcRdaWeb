@@ -95,5 +95,27 @@ namespace UcRDAWebApplication.Controllers
             }
             return null;
         }
+
+        public static bool UpdateStatus(Issue issue)
+        {
+            Boolean res = false;
+
+            using (var client = new HttpClient())
+            {
+                Issue p = issue;
+                client.BaseAddress = new Uri("http://localhost:7000/");
+                var response = client.PutAsJsonAsync("Issue", p).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    res = true;
+                }
+                else
+                {
+                    res = false;
+                }
+            }
+
+            return res;
+        }
     }
 }

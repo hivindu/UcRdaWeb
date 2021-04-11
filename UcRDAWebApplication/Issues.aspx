@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Issues.aspx.cs" Inherits="UcRDAWebApplication.Issues" %>
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -8,6 +7,28 @@
     <link href="Content/bootstrap.css" rel="stylesheet"/>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>  
+    <script type="text/javascript">  
+        var map;
+        function LoadGoogleMAP() {
+            var SetmapOptions = {
+                zoom: 10,
+                center: new google.maps.LatLng(-34.397, 150.644)
+            };
+            map = new google.maps.Map(document.getElementById('canvasMap'),
+                SetmapOptions);
+        }
+
+        google.maps.event.addDomListener(window, 'load', LoadGoogleMAP);
+
+</script> 
+    <style type="text/css">  
+      html, body, #canvasMap {  
+        height: 200px;  
+        margin: 0px;  
+        padding: 0px  
+      }  
+    </style> 
 </head>
 <body>
     <form id="form1" runat="server">
@@ -78,12 +99,11 @@
                         <asp:GridView ID="dgIssuesRda" runat="server" AutoGenerateColumns="False" AutoGenerateSelectButton="True" CssClass="table table-hover" OnSelectedIndexChanged="dgIssuesRda_SelectedIndexChanged" OnSelectedIndexChanging="dgIssuesRda_SelectedIndexChanging" SelectedIndex="0">
                             <Columns>
                                 <asp:BoundField DataField="Id" />
-                                <asp:ImageField AccessibleHeaderText="Image" HeaderText="Image" DataAlternateTextField="Picture" DataImageUrlField="Image">
+                                <asp:ImageField AccessibleHeaderText="Image" HeaderText="Image" DataAlternateTextField="" DataImageUrlField="Image">
                                 </asp:ImageField>
                                 <asp:BoundField AccessibleHeaderText="Province" DataField="Province" HeaderText="Province" />
                                 <asp:BoundField DataField="Date" HeaderText="Date" />
                                 <asp:BoundField DataField="RoadType" HeaderText="Road Type" />
-                                <asp:ButtonField ButtonType="Button" CommandName="Assign" Text="Assign To RDA" />
  
                             </Columns>
                         </asp:GridView>
@@ -93,6 +113,7 @@
                     <div class="row" style="box-shadow:0px 10px 10px 0px;padding:5px;">
                         <h3>Issue Details <i class="fa fa-info-circle" aria-hidden="false" style="font-size:14px"></i></h3>
                         <div style="margin-bottom:2px;">
+                            <asp:Label ID="lblId" runat="server" Text=""></asp:Label>
                             <asp:Label ID="lblImage" runat="server" Text="Image"></asp:Label> : <asp:Image ID="IssueImage" runat="server" OnDataBinding="dgIssuesRda_SelectedIndexChanged" />
                         </div>
                         <div style="margin-bottom:2px;">
@@ -107,8 +128,18 @@
                         <div style="margin-bottom:2px;">
                             <asp:Label ID="lblIssueType" runat="server" Text="Issue Type"></asp:Label> : <asp:Label ID="lblIssueTypeValue" runat="server" Text=""></asp:Label>
                         </div>
+
                         <div style="margin-bottom:2px;">
-                            <asp:Label ID="lblLocation" runat="server" Text="Location"></asp:Label>
+                           Actions:
+                            <%if (type == "rda")
+                                {%>
+                            <asp:DropDownList ID="dlWorkers" runat="server"></asp:DropDownList> <asp:Button ID="btnAssignToWorker" runat="server" Text="Assign To Worker" CssClass="btn btn-success" />
+                            <% }
+                                else
+                                {%>
+                            <asp:Button ID="btnRemove" runat="server" Text="Remove" CssClass="btn btn-danger" OnClick="btnRemove_Click"/>
+                            <asp:Button ID="btnAssign" runat="server" Text="Assigne To RDA" CssClass="btn btn-success" OnClick="btnAssign_Click" />
+                            <%} %>
                         </div>
                     </div>
                 </div>

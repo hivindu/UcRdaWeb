@@ -42,6 +42,15 @@ namespace UcRDAWebApplication
         protected global::System.Web.UI.WebControls.GridView dgIssuesRda;
 
         /// <summary>
+        /// lblId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblId;
+
+        /// <summary>
         /// lblImage control.
         /// </summary>
         /// <remarks>
@@ -132,12 +141,39 @@ namespace UcRDAWebApplication
         protected global::System.Web.UI.WebControls.Label lblIssueTypeValue;
 
         /// <summary>
-        /// lblLocation control.
+        /// dlWorkers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLocation;
+        protected global::System.Web.UI.WebControls.DropDownList dlWorkers;
+
+        /// <summary>
+        /// btnAssignToWorker control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAssignToWorker;
+
+        /// <summary>
+        /// btnRemove control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRemove;
+
+        /// <summary>
+        /// btnAssign control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAssign;
     }
 }
