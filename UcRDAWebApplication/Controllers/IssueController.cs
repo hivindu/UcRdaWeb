@@ -100,21 +100,39 @@ namespace UcRDAWebApplication.Controllers
         {
             Boolean res = false;
 
-            using (var client = new HttpClient())
+            client = new HttpClient();
+            Issue p = issue;
+            client.BaseAddress = new Uri("http://localhost:7000/");
+            var response = client.PutAsJsonAsync("Issue/", p).Result;
+            if (response.IsSuccessStatusCode)
             {
-                Issue p = issue;
-                client.BaseAddress = new Uri("http://localhost:7000/");
-                var response = client.PutAsJsonAsync("Issue", p).Result;
-                if (response.IsSuccessStatusCode)
-                {
-                    res = true;
-                }
-                else
-                {
-                    res = false;
-                }
+                res = true;
             }
+            else
+            {
+                res = false;
+            }
+            
 
+            return res;
+        }
+
+        public static bool RemoveIssue(string id)
+        {
+            Boolean res = false;
+
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:7000/");
+            var response = client.DeleteAsync("Issue/"+id+"").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                res = true;
+             }
+             else
+             {
+                  res = false;
+              }
+                   
             return res;
         }
     }

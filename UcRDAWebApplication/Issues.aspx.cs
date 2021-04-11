@@ -86,7 +86,7 @@ namespace UcRDAWebApplication
             lblRoadTypeValue.Text = issu.RoadType;
             lblDateValue.Text = issu.Date;
             lblProvinceValue.Text = issu.Province;
-
+           
         }
 
         protected void btnAssign_Click(object sender, EventArgs e)
@@ -99,17 +99,45 @@ namespace UcRDAWebApplication
             if (res)
             {
                 MessageBox.Show("Success!");
+                lblId.Text = "";
+                lblIssueTypeValue.Text = "N/A";
+                lblRoadTypeValue.Text = "N/A";
+                lblDateValue.Text = "N/A";
+                lblProvinceValue.Text = "N/A";
+                btnRemove.Enabled = false;
+                btnAssign.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Error!");
+            }
+
+            
+        }
+
+        protected void btnRemove_Click(object sender, EventArgs e)
+        {
+            string id = lblId.Text;
+            bool res = IssueController.RemoveIssue(id);
+
+            if (res)
+            {
+                MessageBox.Show("Success!");
+                lblId.Text = "";
+                lblIssueTypeValue.Text = "N/A";
+                lblRoadTypeValue.Text = "N/A";
+                lblDateValue.Text = "N/A";
+                lblProvinceValue.Text = "N/A";
+                btnRemove.Enabled = false;
+                btnAssign.Enabled = false;
+                //Response.Redirect(Request.RawUrl);
+                BindGrid();
             }
             else
             {
                 MessageBox.Show("Error!");
             }
             
-        }
-
-        protected void btnRemove_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
