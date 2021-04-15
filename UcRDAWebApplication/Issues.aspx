@@ -72,15 +72,12 @@
                                 <li class="active">Issues List</li>
                               </ol>
                             </section>
-                        <asp:GridView ID="dgIssues" runat="server" AutoGenerateColumns="False" CssClass="table table-hover">
+                        <asp:GridView ID="dgIssues" runat="server" AutoGenerateColumns="False" CssClass="table table-hover" AutoGenerateSelectButton="true">
                             <Columns>
                                 <asp:BoundField DataField="Id" Visible="False" />
-                                <asp:ImageField AccessibleHeaderText="Image" HeaderText="Image">
-                                </asp:ImageField>
                                 <asp:BoundField AccessibleHeaderText="Province" DataField="Province" HeaderText="Province" />
                                 <asp:BoundField DataField="Date" HeaderText="Date" />
                                 <asp:BoundField DataField="RoadType" HeaderText="Road Type" />
-                                <asp:ButtonField ButtonType="Button" Text="Assign To Worker" />
                             </Columns>
                         </asp:GridView>
                     <%  }
@@ -98,9 +95,7 @@
                             </section>
                         <asp:GridView ID="dgIssuesRda" runat="server" AutoGenerateColumns="False" AutoGenerateSelectButton="True" CssClass="table table-hover" OnSelectedIndexChanged="dgIssuesRda_SelectedIndexChanged" OnSelectedIndexChanging="dgIssuesRda_SelectedIndexChanging" SelectedIndex="0">
                             <Columns>
-                                <asp:BoundField DataField="Id" />
-                                <asp:ImageField AccessibleHeaderText="Image" HeaderText="Image" DataAlternateTextField="" DataImageUrlField="Image">
-                                </asp:ImageField>
+                                <asp:BoundField DataField="Id" Visible="False" />
                                 <asp:BoundField AccessibleHeaderText="Province" DataField="Province" HeaderText="Province" />
                                 <asp:BoundField DataField="Date" HeaderText="Date" />
                                 <asp:BoundField DataField="RoadType" HeaderText="Road Type" />
@@ -114,7 +109,7 @@
                         <h3>Issue Details <i class="fa fa-info-circle" aria-hidden="false" style="font-size:14px"></i></h3>
                         <div style="margin-bottom:2px;">
                             <asp:Label ID="lblId" runat="server" Text=""></asp:Label>
-                            <asp:Label ID="lblImage" runat="server" Text="Image"></asp:Label> : <asp:Image ID="IssueImage" runat="server" OnDataBinding="dgIssuesRda_SelectedIndexChanged" />
+                            <asp:Label ID="lblImage" runat="server" Text="Image"></asp:Label> : <asp:Image ID="IssueImage" runat="server" Height="200px" Width="200px"/>
                         </div>
                         <div style="margin-bottom:2px;">
                             <asp:Label ID="lblProvince" runat="server" Text="Province"></asp:Label> : <asp:Label ID="lblProvinceValue" runat="server" Text=""></asp:Label>
@@ -133,7 +128,8 @@
                            Actions:
                             <%if (type == "rda")
                                 {%>
-                            <asp:DropDownList ID="dlWorkers" runat="server"></asp:DropDownList> <asp:Button ID="btnAssignToWorker" runat="server" Text="Assign To Worker" CssClass="btn btn-success" />
+
+                            <asp:DropDownList ID="dlWorkers" runat="server" OnSelectedIndexChanged="dlWorkers_SelectedIndexChanged"></asp:DropDownList> <asp:Button ID="btnAssignToWorker" runat="server" Text="Assign To Worker" CssClass="btn btn-success" />
                             <% }
                                 else
                                 {%>

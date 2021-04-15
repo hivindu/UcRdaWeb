@@ -67,16 +67,7 @@
                                             <td>:</td>
                                             <td><asp:TextBox ID="txtNic" runat="server"></asp:TextBox></td>
                                         </tr>
-                                        <tr style="margin-bottom:2px;">
-                                            <td>Works In</td>
-                                            <td>:</td>
-                                            <td>
-                                                <asp:DropDownList ID="dlWorksIn" runat="server">
-                                                    <asp:ListItem>UC</asp:ListItem>
-                                                    <asp:ListItem>RDA</asp:ListItem>
-                                                </asp:DropDownList>
-                                            </td>
-                                        </tr>
+                                        
                                         <tr style="margin-bottom:2px;">
                                             <td>Location</td>
                                             <td>:</td>
@@ -87,7 +78,11 @@
                                             <td style="align-content:center">:</td>
                                             <td><asp:TextBox ID="txtPassword" runat="server"></asp:TextBox></td>
                                         </tr>
-                                        <tr style="margin-bottom:2px;">
+                                        <%
+                                            if(type=="rda")
+                                            { 
+                                            %>
+                                       <tr style="margin-bottom:2px;">
                                             <td>Type</td>
                                             <td>:</td>
                                             <td><asp:DropDownList ID="DropDownList1" runat="server">
@@ -95,13 +90,14 @@
                                                 <asp:ListItem Value="1">Worker</asp:ListItem>
                                                 </asp:DropDownList></td>
                                         </tr>
+                                        <%} %>
+                                        
                                         <tr>
                                             <td>
-                                                <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" /></td>
+                                                <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" CssClass="btn btn-success"/></td>
+                                            
                                             <td>
-                                                <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" /></td>
-                                            <td>
-                                                <asp:Button ID="btnDelete" runat="server" Text="Dalete" OnClick="btnDelete_Click" /></td>
+                                                <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" CssClass="btn btn-danger"/></td>
                                         </tr>
 
                                     </table>
@@ -118,6 +114,7 @@
                                                     <asp:BoundField AccessibleHeaderText="Id" DataField="Id" HeaderText="Id" Visible="False" />
                                                     <asp:BoundField AccessibleHeaderText="Name" DataField="Name" HeaderText="Name" />
                                                     <asp:BoundField AccessibleHeaderText="NIC" HeaderText="NIC" />
+                                                    <asp:BoundField DataField="LocationArea" HeaderText="Area" />
                                                 </Columns>
                                             </asp:GridView>
                                         </div>

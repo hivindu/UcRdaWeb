@@ -10,22 +10,15 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Runtime.Remoting;
 using System.Web;
+using System.Web.Mvc;
 using UcRDAWebApplication.Models;
 
 namespace UcRDAWebApplication.Controllers
 {
-    public class IssueController
+    public class IssueController : Controller
     {
         private static HttpClient client;
-        private static readonly ImageConverter _imageConverter = new ImageConverter();
-        private static Bitmap myBitmap;
-        private static ImageCodecInfo myImageCodecInfo;
-        private static Encoder myEncoder;
-        private static EncoderParameter myEncoderParameter;
-        private static EncoderParameters myEncoderParameters;
-        private static string path;
-
-
+      
         public static List<Issue> GetIssueByArea(string area)
         {
             List<Issue> Issuelist = new List<Issue>();
@@ -47,7 +40,7 @@ namespace UcRDAWebApplication.Controllers
             return Issuelist;
         }
 
-        public static Issue GetIssueById(string Id)
+        public Issue GetIssueById(string Id)
         {
             Issue issue = new Issue();
 
@@ -59,6 +52,9 @@ namespace UcRDAWebApplication.Controllers
             {
                 var issu = response.Content.ReadAsStringAsync().Result;
                 issue = JsonConvert.DeserializeObject<Issue>(issu);
+                string imreBase64Data = Convert.ToBase64String(issue.Image);
+                string imgDataURL = string.Format("data:image/png;base64,{0}", imreBase64Data);
+                issue.base64 = imgDataURL;
             }
             else
             {
@@ -68,32 +64,25 @@ namespace UcRDAWebApplication.Controllers
             return issue;
         }
 
-        public static string convertToImage(byte[] byteArrayIn, string id)
+        public static List<Issue> GetRDAIssues(string area)
         {
-            Image image = Image.FromStream(new MemoryStream(byteArrayIn));
-            myImageCodecInfo = GetEncoderInfo("image/jpeg");
-            myEncoder = Encoder.Quality;
-            myEncoderParameters = new EncoderParameters(1);
-            myEncoderParameter = new EncoderParameter(myEncoder, 25L);
-            myEncoderParameters.Param[0] = myEncoderParameter;
-            path = "~Image/" + id + ".jpg";
-            myBitmap.Save(path, myImageCodecInfo, myEncoderParameters);
-            
+            List<Issue> Issuelist = new List<Issue>();
 
-            return path;
-        }
-
-        private static ImageCodecInfo GetEncoderInfo(String mimeType)
-        {
-            int j;
-            ImageCodecInfo[] encoders;
-            encoders = ImageCodecInfo.GetImageEncoders();
-            for (j = 0; j < encoders.Length; ++j)
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:7000/");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("Issue/GetApprovedIssuesByAdminArea/" + area + "").Result;
+            if (response.IsSuccessStatusCode)
             {
-                if (encoders[j].MimeType == mimeType)
-                    return encoders[j];
+                var issue = response.Content.ReadAsStringAsync().Result;
+                Issuelist = JsonConvert.DeserializeObject<List<Issue>>(issue);
             }
-            return null;
+            else
+            {
+                Issuelist = null;
+            }
+
+            return Issuelist;
         }
 
         public static bool UpdateStatus(Issue issue)

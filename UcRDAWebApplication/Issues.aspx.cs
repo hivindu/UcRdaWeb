@@ -21,7 +21,15 @@ namespace UcRDAWebApplication
         {
             lblId.Visible = false;
             //InitializeGrid();
-            BindGrid();
+            string type = Convert.ToString(Session["type"]);
+            if (type == "rda")
+            {
+                BindRDAGrid();
+            }
+            else {
+                BindGrid();
+            }
+            
             btnAssign.Enabled = false;
             btnAssignToWorker.Enabled = false;
             btnRemove.Enabled = false;
@@ -53,12 +61,23 @@ namespace UcRDAWebApplication
             dgIssuesRda.DataBind();
         }
 
+        private void BindRDAGrid()
+        {
+            string adminArea = Convert.ToString(Session["area"]);
+            List<Issue> IssueList = IssueController.GetIssueByArea(adminArea);
+            int count = IssueList.Count;
+
+            dgIssues.DataSource = IssueList;
+            dgIssues.DataBind();
+        }
+
         protected void dgIssuesRda_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Issue issu = new Issue();
-            string id = dgIssuesRda.SelectedRow.Cells[1].Text;
-            issu = IssueController.GetIssueById(id);
-            IssueImage.ImageUrl = "@String.Format('data: "+issu.Image+" / png; base64,{ 0}', Convert.ToBase64String(Model.imageBytes))";
+           // Issue issu = new Issue();
+            //string id = dgIssuesRda.SelectedRow.Cells[1].Text;
+           // issu = IssueController.GetIssueById(id);
+            //IssueImage.ImageUrl = "@String.Format('data: image/ png; base64,{ 0}', Convert.ToBase64String("+issu.Image+"))";
+            
         }
 
         protected void dgIssuesRda_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
@@ -67,11 +86,12 @@ namespace UcRDAWebApplication
             btnAssign.Enabled = true;
             Issue issu = new Issue();
             string id = (dgIssuesRda.Rows[e.NewSelectedIndex].Cells[1].Text).ToString();
-            issu = IssueController.GetIssueById(id);
+            IssueController cont = new IssueController();
+            issu = cont.GetIssueById(id);
             lblId.Text = id;
             glIssue = issu;
-            // Bind Values to details panel
-            IssueImage.ImageUrl = "@String.Format('data: " + issu.Image + " / png; base64,{ 0}', Convert.ToBase64String(Model.imageBytes))";
+            IssueImage.ImageUrl = issu.base64;
+
             switch (issu.IssueType)
             {
                 case 1:
@@ -83,18 +103,19 @@ namespace UcRDAWebApplication
                 case 4:
                     lblIssueTypeValue.Text = "Under Construction";break;
             }
+
             lblRoadTypeValue.Text = issu.RoadType;
             lblDateValue.Text = issu.Date;
             lblProvinceValue.Text = issu.Province;
-           
         }
 
         protected void btnAssign_Click(object sender, EventArgs e)
         {
             string id = lblId.Text;
             Issue issu = new Issue();
-            issu = IssueController.GetIssueById(id);
-            issu.Status = "tT";
+            IssueController cont = new IssueController();
+            issu = cont.GetIssueById(id);
+            issu.Status = "Assigned";
             bool res = IssueController.UpdateStatus(issu);
             if (res)
             {
@@ -112,7 +133,6 @@ namespace UcRDAWebApplication
                 MessageBox.Show("Error!");
             }
 
-            
         }
 
         protected void btnRemove_Click(object sender, EventArgs e)
@@ -130,7 +150,7 @@ namespace UcRDAWebApplication
                 lblProvinceValue.Text = "N/A";
                 btnRemove.Enabled = false;
                 btnAssign.Enabled = false;
-                //Response.Redirect(Request.RawUrl);
+                
                 BindGrid();
             }
             else
@@ -138,6 +158,11 @@ namespace UcRDAWebApplication
                 MessageBox.Show("Error!");
             }
             
+        }
+
+        protected void dlWorkers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

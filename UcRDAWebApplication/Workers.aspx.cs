@@ -14,10 +14,7 @@ namespace UcRDAWebApplication
 
         }
 
-        public void InitDG()
-        {
-
-        }
+        
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
