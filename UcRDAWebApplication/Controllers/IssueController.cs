@@ -52,9 +52,6 @@ namespace UcRDAWebApplication.Controllers
             {
                 var issu = response.Content.ReadAsStringAsync().Result;
                 issue = JsonConvert.DeserializeObject<Issue>(issu);
-                string imreBase64Data = Convert.ToBase64String(issue.Image);
-                string imgDataURL = string.Format("data:image/png;base64,{0}", imreBase64Data);
-                issue.base64 = imgDataURL;
             }
             else
             {
@@ -71,7 +68,7 @@ namespace UcRDAWebApplication.Controllers
             client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:7000/");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = client.GetAsync("Issue/GetApprovedIssuesByAdminArea/" + area + "").Result;
+            HttpResponseMessage response = client.GetAsync("Issue/GetAssignedIssuesRDA/" + area + "").Result;
             if (response.IsSuccessStatusCode)
             {
                 var issue = response.Content.ReadAsStringAsync().Result;
@@ -92,7 +89,7 @@ namespace UcRDAWebApplication.Controllers
             client = new HttpClient();
             Issue p = issue;
             client.BaseAddress = new Uri("http://localhost:7000/");
-            var response = client.PutAsJsonAsync("Issue/", p).Result;
+            var response = client.PutAsJsonAsync("Issue", p).Result;
             if (response.IsSuccessStatusCode)
             {
                 res = true;

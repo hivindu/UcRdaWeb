@@ -19,6 +19,6 @@ namespace UcRDAWebApplication.Models
         public string RoadType { get; set; }
         public int IssueType { get; set; }
         public string AdminArea { get; set; }
-        public string base64 { get; set; }
+       // public string base64 { get; set; }
     }
 }

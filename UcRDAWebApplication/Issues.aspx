@@ -72,9 +72,9 @@
                                 <li class="active">Issues List</li>
                               </ol>
                             </section>
-                        <asp:GridView ID="dgIssues" runat="server" AutoGenerateColumns="False" CssClass="table table-hover" AutoGenerateSelectButton="true">
+                        <asp:GridView ID="dgIssues" runat="server" AutoGenerateColumns="False" CssClass="table table-hover" AutoGenerateSelectButton="True" OnSelectedIndexChanging="dgIssues_SelectedIndexChanging">
                             <Columns>
-                                <asp:BoundField DataField="Id" Visible="False" />
+                                <asp:BoundField DataField="Id" />
                                 <asp:BoundField AccessibleHeaderText="Province" DataField="Province" HeaderText="Province" />
                                 <asp:BoundField DataField="Date" HeaderText="Date" />
                                 <asp:BoundField DataField="RoadType" HeaderText="Road Type" />
@@ -95,7 +95,7 @@
                             </section>
                         <asp:GridView ID="dgIssuesRda" runat="server" AutoGenerateColumns="False" AutoGenerateSelectButton="True" CssClass="table table-hover" OnSelectedIndexChanged="dgIssuesRda_SelectedIndexChanged" OnSelectedIndexChanging="dgIssuesRda_SelectedIndexChanging" SelectedIndex="0">
                             <Columns>
-                                <asp:BoundField DataField="Id" Visible="False" />
+                                <asp:BoundField DataField="Id" />
                                 <asp:BoundField AccessibleHeaderText="Province" DataField="Province" HeaderText="Province" />
                                 <asp:BoundField DataField="Date" HeaderText="Date" />
                                 <asp:BoundField DataField="RoadType" HeaderText="Road Type" />

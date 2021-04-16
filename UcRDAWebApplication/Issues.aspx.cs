@@ -20,7 +20,7 @@ namespace UcRDAWebApplication
         protected void Page_Load(object sender, EventArgs e)
         {
             lblId.Visible = false;
-            //InitializeGrid();
+            
             string type = Convert.ToString(Session["type"]);
             if (type == "rda")
             {
@@ -33,6 +33,7 @@ namespace UcRDAWebApplication
             btnAssign.Enabled = false;
             btnAssignToWorker.Enabled = false;
             btnRemove.Enabled = false;
+            dlWorkers.Enabled = false;
         }
 
         public void InitializeGrid()
@@ -53,10 +54,6 @@ namespace UcRDAWebApplication
             List<Issue> IssueList = IssueController.GetIssueByArea(adminArea);
             int count = IssueList.Count;
 
-          //  for (int i = 0; i < count; i++)
-            //{
-              //  IssueList[i].Path = IssueController.convertToImage(IssueList[i].Image,IssueList[i].Id);
-            //}
             dgIssuesRda.DataSource = IssueList;
             dgIssuesRda.DataBind();
         }
@@ -64,7 +61,7 @@ namespace UcRDAWebApplication
         private void BindRDAGrid()
         {
             string adminArea = Convert.ToString(Session["area"]);
-            List<Issue> IssueList = IssueController.GetIssueByArea(adminArea);
+            List<Issue> IssueList = IssueController.GetRDAIssues(adminArea);
             int count = IssueList.Count;
 
             dgIssues.DataSource = IssueList;
@@ -73,10 +70,6 @@ namespace UcRDAWebApplication
 
         protected void dgIssuesRda_SelectedIndexChanged(object sender, EventArgs e)
         {
-           // Issue issu = new Issue();
-            //string id = dgIssuesRda.SelectedRow.Cells[1].Text;
-           // issu = IssueController.GetIssueById(id);
-            //IssueImage.ImageUrl = "@String.Format('data: image/ png; base64,{ 0}', Convert.ToBase64String("+issu.Image+"))";
             
         }
 
@@ -90,7 +83,7 @@ namespace UcRDAWebApplication
             issu = cont.GetIssueById(id);
             lblId.Text = id;
             glIssue = issu;
-            IssueImage.ImageUrl = issu.base64;
+            IssueImage.ImageUrl = IMageConvert(issu.Image);
 
             switch (issu.IssueType)
             {
@@ -127,11 +120,13 @@ namespace UcRDAWebApplication
                 lblProvinceValue.Text = "N/A";
                 btnRemove.Enabled = false;
                 btnAssign.Enabled = false;
+                IssueImage.ImageUrl = null;
             }
             else
             {
                 MessageBox.Show("Error!");
             }
+            BindGrid();
 
         }
 
@@ -162,7 +157,57 @@ namespace UcRDAWebApplication
 
         protected void dlWorkers_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+        }
 
+        protected void dgIssues_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            dlWorkers.Enabled = true;
+            Issue issu = new Issue();
+            string id = (dgIssues.Rows[e.NewSelectedIndex].Cells[1].Text).ToString();
+            IssueController cont = new IssueController();
+            issu = cont.GetIssueById(id);
+            lblId.Text = id;
+            glIssue = issu;
+            IssueImage.ImageUrl = IMageConvert(issu.Image);
+            BindDropDownList();
+            switch (issu.IssueType)
+            {
+                case 1:
+                    lblIssueTypeValue.Text = "Pothole"; break;
+                case 2:
+                    lblIssueTypeValue.Text = "Brocken Street light"; break;
+                case 3:
+                    lblIssueTypeValue.Text = "Drain line Block"; break;
+                case 4:
+                    lblIssueTypeValue.Text = "Under Construction"; break;
+            }
+            
+            lblRoadTypeValue.Text = issu.RoadType;
+            lblDateValue.Text = issu.Date;
+            lblProvinceValue.Text = issu.Province;
+            btnAssignToWorker.Enabled = true;
+        }
+
+        private void BindDropDownList()
+        {
+            string area = Convert.ToString(Session["area"]);
+            List<Users> users = UserController.GetRDAWorkers(area);
+            DataTable dt = new DataTable();
+            dt = UserController.ToDataTable(users);
+            dlWorkers.DataSource = dt;
+            dlWorkers.DataBind();
+            dlWorkers.DataTextField = "Name";
+            dlWorkers.DataValueField = "ID";
+            dlWorkers.DataBind();
+        }
+
+        protected string IMageConvert(byte[] arrayOdByte)
+        {
+            string imreBase64Data = Convert.ToBase64String(arrayOdByte);
+            string imgDataURL = string.Format("data:image/png;base64,{0}", imreBase64Data);
+
+            return imgDataURL;
         }
     }
 }
