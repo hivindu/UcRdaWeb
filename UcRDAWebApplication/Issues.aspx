@@ -129,7 +129,9 @@
                             <%if (type == "rda")
                                 {%>
 
-                            <asp:DropDownList ID="dlWorkers" runat="server" OnSelectedIndexChanged="dlWorkers_SelectedIndexChanged"></asp:DropDownList> <asp:Button ID="btnAssignToWorker" runat="server" Text="Assign To Worker" CssClass="btn btn-success" />
+                            <asp:DropDownList ID="dlWorkers" runat="server" OnSelectedIndexChanged="dlWorkers_SelectedIndexChanged">
+                                <asp:ListItem>- Worker -</asp:ListItem>
+                            </asp:DropDownList> <asp:Button ID="btnAssignToWorker" runat="server" Text="Assign To Worker" CssClass="btn btn-success" OnClick="btnAssignToWorker_Click" />
                             <% }
                                 else
                                 {%>

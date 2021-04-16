@@ -209,5 +209,47 @@ namespace UcRDAWebApplication
 
             return imgDataURL;
         }
+
+        protected void btnAssignToWorker_Click(object sender, EventArgs e)
+        {
+            string id = Convert.ToString(dlWorkers.SelectedItem.Value);
+            string iid = lblId.Text;
+            Issue issu = new Issue();
+            IssueController cont = new IssueController();
+            issu = cont.GetIssueById(iid);
+            issu.Status = "Working";
+            bool res = IssueController.UpdateStatus(issu);
+            if (res)
+            {
+                MessageBox.Show("Success!");
+                lblId.Text = "";
+                lblIssueTypeValue.Text = "N/A";
+                lblRoadTypeValue.Text = "N/A";
+                lblDateValue.Text = "N/A";
+                lblProvinceValue.Text = "N/A";
+                btnRemove.Enabled = false;
+                btnAssign.Enabled = false;
+                IssueImage.ImageUrl = null;
+            }
+            else
+            {
+                MessageBox.Show("Error!");
+            }
+
+            Work work = new Work();
+            work.IssueId = iid;
+            work.UserUd = id;
+            work.Status = "Working";
+
+            bool result = WorkController.AssignWork(work);
+            if (result)
+            {
+
+            }
+            else { 
+
+            }
+            BindGrid();
+        }
     }
 }
