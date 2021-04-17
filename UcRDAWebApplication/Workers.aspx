@@ -51,6 +51,34 @@
                                 <div class="col-md-6">
                                     <br />
                                     <h3> <asp:Label ID="lblHeader" runat="server" Text="Details"></asp:Label></h3>
+                                    <%
+                                        if (Session["error"] != null)
+                                        {
+                                            string error = Convert.ToString(Session["error"]);
+                                            lblErr.Text = error;
+                                        %>
+                                        <div class='alert alert-danger alert-dismissible'>
+                                          <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                                          <h4><i class='icon fa fa-warning'></i> Error!</h4>
+                                            <asp:Label ID="lblErr" runat="server" Text=""></asp:Label>
+                                        </div>
+                                        <%
+                                                Session["error"] = null;
+                                            }
+                                            if(Session["success"]!=null)
+                                            {
+                                                lblSuc.Text = Convert.ToString(Session["success"]);
+                                          %>
+                                        <div class='alert alert-success alert-dismissible'>
+                                          <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                                          <h4><i class='icon fa fa-check'></i> Success!</h4>
+                                            <asp:Label ID="lblSuc" runat="server" Text=""></asp:Label>
+                                        </div>
+                                        <%
+                                                Session["success"] = null;
+                                            }
+                                        %>
+        
                                     <br />
                                     <table border="0">
                                         <tr style="margin-bottom:2px;">
@@ -96,7 +124,7 @@
                                     </table>
                                 </div>
                             </div>
-                        <div class="row">
+                        <div class="row" style="margin-top:2vh;">
                             <div class="col-md-12">
                                 <div class="box">
                                     <div class="box-body">

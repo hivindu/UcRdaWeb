@@ -46,6 +46,14 @@ namespace UcRDAWebApplication
                 user.Type = Convert.ToInt32(dlType.SelectedItem.Value);
                 user.LocationArea = txtLocation.Text;
                 bool res = UserController.CreatweUser(user);
+                if (res)
+                {
+                    Session["success"] = "Succesfully Created";
+                }
+                else
+                {
+                    Session["error"] = "Couldn't Creat!";
+                }
                 BindRDAUsers();
             }
             else
@@ -57,8 +65,17 @@ namespace UcRDAWebApplication
                 user.Type = 0;
                 user.LocationArea = txtLocation.Text;
                 bool res = UserController.CreatweUser(user);
+                if (res)
+                {
+                    Session["success"] = "Succesfully Created";
+                }
+                else
+                {
+                    Session["error"] = "Couldn't Creat!";
+                }
                 BindUCUsers();
             }
+            CleanData();
         }
 
         //removed button
@@ -69,15 +86,34 @@ namespace UcRDAWebApplication
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
+            string id = txtId.Text;
+            bool res = UserController.RemoveUser(id);
             string type = Convert.ToString(Session["type"]);
             if (type != "UC")
             {
-                
+                if (res)
+                {
+                    Session["success"] = "Succesfully Deleted";
+                }
+                else
+                {
+                    Session["error"] = "Couldn't Delete!";
+                }
+                BindRDAUsers();
             }
             else
             {
-              
+                if (res)
+                {
+                    Session["success"] = "Succesfully Deleted";
+                }
+                else
+                {
+                    Session["error"] = "Couldn't Delete!";
+                }
+                BindUCUsers();
             }
+            CleanData();
         }
 
         protected void dgWorkers_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
@@ -109,6 +145,16 @@ namespace UcRDAWebApplication
 
             dgWorkers.DataSource = UsersList;
             dgWorkers.DataBind();
+        }
+
+        private void CleanData()
+        {
+            txtId.Text = "";
+            txtName.Text = "";
+            txtNic.Text = "";
+            txtPassword.Text = "";
+            txtPassword.Enabled = true;
+            btnAdd.Enabled = true;
         }
     }
 }

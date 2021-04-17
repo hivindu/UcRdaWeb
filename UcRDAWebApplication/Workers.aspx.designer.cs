@@ -33,6 +33,24 @@ namespace UcRDAWebApplication
         protected global::System.Web.UI.WebControls.Label lblHeader;
 
         /// <summary>
+        /// lblErr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErr;
+
+        /// <summary>
+        /// lblSuc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSuc;
+
+        /// <summary>
         /// txtId control.
         /// </summary>
         /// <remarks>

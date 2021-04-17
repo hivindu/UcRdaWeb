@@ -138,7 +138,7 @@ namespace UcRDAWebApplication.Controllers
             return res;
         }
 
-        public static bool RemoveIssue(string id)
+        public static bool RemoveUser(string id)
         {
             Boolean res = false;
 
