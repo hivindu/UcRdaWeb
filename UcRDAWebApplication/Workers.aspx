@@ -109,9 +109,9 @@
                                 <div class="box">
                                     
                                     <div class="box-body">
-                                            <asp:GridView ID="dgWorkers" runat="server">
+                                            <asp:GridView ID="dgWorkers" runat="server" AutoGenerateSelectButton="true">
                                                 <Columns>
-                                                    <asp:BoundField AccessibleHeaderText="Id" DataField="Id" HeaderText="Id" Visible="False" />
+                                                    <asp:BoundField AccessibleHeaderText="Id" DataField="Id" HeaderText="Id" />
                                                     <asp:BoundField AccessibleHeaderText="Name" DataField="Name" HeaderText="Name" />
                                                     <asp:BoundField AccessibleHeaderText="NIC" HeaderText="NIC" />
                                                     <asp:BoundField DataField="LocationArea" HeaderText="Area" />

@@ -249,7 +249,7 @@ namespace UcRDAWebApplication
             else { 
 
             }
-            BindGrid();
+            BindRDAGrid();
         }
     }
 }
