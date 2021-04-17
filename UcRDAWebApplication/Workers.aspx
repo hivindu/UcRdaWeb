@@ -55,13 +55,13 @@
                                     <table border="0">
                                         <tr style="margin-bottom:2px;">
                                             <td >Name:</td>
-                                            <td>:</td>
-                                            <td><asp:TextBox ID="txtName" runat="server"></asp:TextBox></td>
+                                            <td>:<asp:TextBox ID="txtId" runat="server" Visible="false"></asp:TextBox></td>
+                                            <td><asp:TextBox ID="txtName" runat="server" ValidateRequestMode="Enabled"></asp:TextBox></td>
                                         </tr>
                                         <tr style="margin-bottom:2px;">
                                             <td>NIC</td>
                                             <td>:</td>
-                                            <td><asp:TextBox ID="txtNic" runat="server"></asp:TextBox></td>
+                                            <td><asp:TextBox ID="txtNic" runat="server" ValidateRequestMode="Enabled"></asp:TextBox></td>
                                         </tr>
                                         <tr style="margin-bottom:2px;">
                                             <td>Location</td>
@@ -71,7 +71,7 @@
                                         <tr style="margin-bottom:2px;">
                                             <td>Password</td>
                                             <td style="align-content:center">:</td>
-                                            <td><asp:TextBox ID="txtPassword" runat="server"></asp:TextBox></td>
+                                            <td><asp:TextBox ID="txtPassword" runat="server" ValidateRequestMode="Enabled"></asp:TextBox></td>
                                         </tr>
                                         <%
                                             if(type=="rda")
@@ -80,7 +80,7 @@
                                        <tr style="margin-bottom:2px;">
                                             <td>Type</td>
                                             <td>:</td>
-                                            <td><asp:DropDownList ID="DropDownList1" runat="server">
+                                            <td><asp:DropDownList ID="dlType" runat="server">
                                                 <asp:ListItem Value="0">Admin</asp:ListItem>
                                                 <asp:ListItem Value="1">Worker</asp:ListItem>
                                                 </asp:DropDownList></td>

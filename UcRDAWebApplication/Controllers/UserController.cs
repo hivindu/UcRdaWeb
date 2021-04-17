@@ -76,6 +76,26 @@ namespace UcRDAWebApplication.Controllers
             return users;
         }
 
+        public static Users GetUSerById(string id)
+        {
+            Users use=null;
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:7000/");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("UCRDAUser/"+id+ "").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var user = response.Content.ReadAsStringAsync().Result;
+                use = JsonConvert.DeserializeObject<Users>(user);
+            }
+            else
+            {
+                use = null;
+            }
+
+            return use;
+        }
+
         public static bool CreatweUser(Users user)
         {
             Boolean res = false;
