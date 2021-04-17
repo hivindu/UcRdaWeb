@@ -13,5 +13,7 @@ namespace UcRDAWebApplication.Models
         public string IssueId { get; set; }
         public DateTime AssignedDate { get; set; }
         public string Status { get; set; }
+        public string Area { get; set; }
+        public string WorkerName { get; set; }
     }
 }

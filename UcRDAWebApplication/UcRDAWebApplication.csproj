@@ -240,12 +240,12 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Image\finalise design.png" />
     <Content Include="Logout.aspx" />
+    <Content Include="WorkerHome.aspx" />
     <Content Include="Workers.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Image\front.jpg" />
     <Content Include="AdminHome.aspx" />
     <Content Include="Issues.aspx" />
-    <Content Include="WorkerHome.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -319,13 +319,6 @@
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WorkerHome.aspx.cs">
-      <DependentUpon>WorkerHome.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WorkerHome.aspx.designer.cs">
-      <DependentUpon>WorkerHome.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -358,6 +351,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WorkerHome.aspx.cs">
+      <DependentUpon>WorkerHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WorkerHome.aspx.designer.cs">
+      <DependentUpon>WorkerHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="Workers.aspx.cs">
       <DependentUpon>Workers.aspx</DependentUpon>

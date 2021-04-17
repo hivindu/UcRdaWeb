@@ -8,20 +8,7 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>  
-    <script type="text/javascript">  
-        var map;
-        function LoadGoogleMAP() {
-            var SetmapOptions = {
-                zoom: 10,
-                center: new google.maps.LatLng(-34.397, 150.644)
-            };
-            map = new google.maps.Map(document.getElementById('canvasMap'),
-                SetmapOptions);
-        }
-
-        google.maps.event.addDomListener(window, 'load', LoadGoogleMAP);
-
-</script> 
+   
     <style type="text/css">  
       html, body, #canvasMap {  
         height: 200px;  

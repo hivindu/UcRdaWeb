@@ -7,6 +7,13 @@
     <title>AssignedTasks</title>
     <link href="Content/bootstrap.css" rel="stylesheet"/>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">  
+      html, body, #canvasMap {  
+        height: 200px;  
+        margin: 0px;  
+        padding: 0px  
+      }  
+    </style> 
 </head>
 <body>
     <form id="form1" runat="server">
@@ -35,7 +42,28 @@
                         <li><a href="Logout.aspx">Log Out</a></li>
                     </ul>
                   </div>
-                </nav>
+           </nav>
+           <div class="container">
+               <section class="content-header">
+               <h1>Assigned Task List</h1>
+               <ol class="breadcrumb">
+               <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Assinged Task List</li>
+               </ol>
+         </section>
+               <section>
+
+                   <asp:GridView ID="dgAssignedTask" runat="server" AutoGenerateColumns="False" Width="100%">
+                       <Columns>
+                           <asp:BoundField DataField="WorkerName" HeaderText="Name" />
+                           <asp:BoundField DataField="IssueId" HeaderText="Issue_Id" />
+                           <asp:BoundField DataField="Status" HeaderText="Status" />
+                           <asp:BoundField DataField="AssignedDate" HeaderText="AssignedDate" />
+                       </Columns>
+                   </asp:GridView>
+
+               </section>
+           </div>     
         <%}
             else {
                 Response.Redirect("Login.aspx");

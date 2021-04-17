@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace UcRDAWebApplication.Interface.Worker
+namespace UcRDAWebApplication
 {
     public partial class WorkerHome : System.Web.UI.Page
     {

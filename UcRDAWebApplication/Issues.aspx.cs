@@ -221,26 +221,27 @@ namespace UcRDAWebApplication
             bool res = IssueController.UpdateStatus(issu);
             if (res)
             {
-                MessageBox.Show("Success!");
-                lblId.Text = "";
+               MessageBox.Show("Success!");
                 lblIssueTypeValue.Text = "N/A";
                 lblRoadTypeValue.Text = "N/A";
                 lblDateValue.Text = "N/A";
                 lblProvinceValue.Text = "N/A";
                 btnRemove.Enabled = false;
-                btnAssign.Enabled = false;
+              btnAssign.Enabled = false;
                 IssueImage.ImageUrl = null;
             }
-            else
+           else
             {
                 MessageBox.Show("Error!");
-            }
-
+           }
+            string area = Convert.ToString(Session["area"]);
             Work work = new Work();
             work.IssueId = iid;
             work.UserUd = id;
             work.Status = "Working";
-
+            work.Area = area;
+            work.WorkerName = Convert.ToString(dlWorkers.SelectedItem.Text);
+            work.AssignedDate = DateTime.Now.Date;
             bool result = WorkController.AssignWork(work);
             if (result)
             {

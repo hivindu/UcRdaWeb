@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web;
 using UcRDAWebApplication.Models;
 
@@ -31,6 +33,25 @@ namespace UcRDAWebApplication.Controllers
             return res;
         }
 
+        public static List<Work> GetTaskByArea(string area)
+        {
+            List<Work> TaskList = new List<Work>();
 
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:7000/");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("Work/GetTaskByArea/" + area+"").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var task = response.Content.ReadAsStringAsync().Result;
+                TaskList = JsonConvert.DeserializeObject<List<Work>>(task);
+            }
+            else
+            {
+                TaskList = null;
+            }
+
+            return TaskList;
+        }
     }
 }
