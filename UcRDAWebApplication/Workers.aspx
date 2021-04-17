@@ -37,8 +37,6 @@
                     </ul>
                   </div>
                 </nav>
-          
-                        
                         <div class="container">
                             <section class="content-header">
                               <h1>
@@ -52,9 +50,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <br />
-                                    
                                     <h3> <asp:Label ID="lblHeader" runat="server" Text="Details"></asp:Label></h3>
-                                    
                                     <br />
                                     <table border="0">
                                         <tr style="margin-bottom:2px;">
@@ -67,7 +63,6 @@
                                             <td>:</td>
                                             <td><asp:TextBox ID="txtNic" runat="server"></asp:TextBox></td>
                                         </tr>
-                                        
                                         <tr style="margin-bottom:2px;">
                                             <td>Location</td>
                                             <td>:</td>
@@ -91,7 +86,6 @@
                                                 </asp:DropDownList></td>
                                         </tr>
                                         <%} %>
-                                        
                                         <tr>
                                             <td>
                                                 <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" CssClass="btn btn-success"/></td>
@@ -99,17 +93,14 @@
                                             <td>
                                                 <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" CssClass="btn btn-danger"/></td>
                                         </tr>
-
                                     </table>
-                                   
                                 </div>
                             </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="box">
-                                    
                                     <div class="box-body">
-                                            <asp:GridView ID="dgWorkers" runat="server" AutoGenerateSelectButton="true">
+                                            <asp:GridView ID="dgWorkers" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanging="dgWorkers_SelectedIndexChanging" AutoGenerateColumns="False">
                                                 <Columns>
                                                     <asp:BoundField AccessibleHeaderText="Id" DataField="Id" HeaderText="Id" />
                                                     <asp:BoundField AccessibleHeaderText="Name" DataField="Name" HeaderText="Name" />
@@ -121,8 +112,7 @@
                                     </div>
                             </div>
                         </div>
-                       </div>
-
+                    </div>
         <%}
             else {
                 Response.Redirect("Login.aspx");

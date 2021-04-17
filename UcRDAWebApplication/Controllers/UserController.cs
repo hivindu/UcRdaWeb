@@ -56,6 +56,87 @@ namespace UcRDAWebApplication.Controllers
             return users;
         }
 
+        public static List<Users> GetAllWorkersByTypeAndArea(string area, int work)
+        {
+            List<Users> users = null;
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:7000/");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("UCRDAUser/GetAllWorkersByTypeAndArea/" + area + "/"+work+"").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var user = response.Content.ReadAsStringAsync().Result;
+                users = JsonConvert.DeserializeObject<List<Users>>(user);
+            }
+            else
+            {
+                users = null;
+            }
+
+            return users;
+        }
+
+        public static bool CreatweUser(Users user)
+        {
+            Boolean res = false;
+
+            client = new HttpClient();
+            Users u = user;
+            client.BaseAddress = new Uri("http://localhost:7000/");
+            var response = client.PostAsJsonAsync("UCRDAUser", u).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                res = true;
+            }
+            else
+            {
+                res = false;
+            }
+
+
+            return res;
+        }
+
+        public static bool Updateuser(Users user)
+        {
+            Boolean res = false;
+
+            client = new HttpClient();
+            Users u = user;
+            client.BaseAddress = new Uri("http://localhost:7000/");
+            var response = client.PutAsJsonAsync("UCRDAUser", u).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                res = true;
+            }
+            else
+            {
+                res = false;
+            }
+
+
+            return res;
+        }
+
+        public static bool RemoveIssue(string id)
+        {
+            Boolean res = false;
+
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:7000/");
+            var response = client.DeleteAsync("UCRDAUser/" + id + "").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                res = true;
+            }
+            else
+            {
+                res = false;
+            }
+
+            return res;
+        }
+
         public static DataTable ToDataTable<Users>(List<Users> items)
         {
             DataTable dataTable = new DataTable(typeof(Users).Name);
