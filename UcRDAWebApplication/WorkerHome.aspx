@@ -34,7 +34,7 @@
                                </ol>
                          </section>
                           <section class="content-body">
-                              <asp:GridView ID="dgIssueList" runat="server" AutoGenerateColumns="False" CssClass="table" EnableSortingAndPagingCallbacks="True" ShowHeaderWhenEmpty="True" EmptyDataText = "No Records Found">
+                              <asp:GridView ID="dgIssueList" runat="server" AutoGenerateColumns="False" CssClass="table" AutoGenerateSelectButton="True" ShowHeaderWhenEmpty="True" EmptyDataText = "No Records Found" OnSelectedIndexChanging="dgIssueList_SelectedIndexChanging">
                                   <Columns>
                                       <asp:BoundField DataField="IssueId" HeaderText="Issue Id" />
                                       <asp:BoundField DataField="Status" HeaderText="Status" />
@@ -49,7 +49,7 @@
                                       <hr />
                                       <div class="row">
                                           <div class="col-md-3">Image :</div>
-                                          <div class="col-md-3"> <asp:Image ID="Image1" runat="server" Height="150px" Width="150px"/></div>
+                                          <div class="col-md-3"> <asp:Image ID="imgIssue" runat="server" Height="150px" Width="150px"/></div>
                                           <div class="col-md-3">Province :</div>
                                           <div class="col-md-3">
                                               <asp:Label ID="lblProvince" runat="server" Text="N/A"></asp:Label></div>

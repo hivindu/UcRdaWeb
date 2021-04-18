@@ -27,6 +27,7 @@ namespace UcRDAWebApplication
 
             if (user!= null)
             {
+                Session["id"] = user.Id;
                 Session["NIC"] =user.NIC ;
                 Session["type"] = user.Type;
                 Session["username"] = user.Name;
