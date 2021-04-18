@@ -7,6 +7,44 @@
     <title>Home (MyCity Worker)</title>
     <link href="Content/bootstrap.css" rel="stylesheet"/>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script type="text/javascript" src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyC6v5-2uaq_wusHDktM9ILcqIrlPtnZgEk&sensor=false"></script>
+    <script>  
+        function initialize(latvalue, longvalue) {  
+            var latvar = latvalue  
+            var longvar = longvalue  
+            var mapProp = {  
+                center: new google.maps.LatLng(latvar, longvalue),  
+                zoom: 15,  
+                mapTypeId: google.maps.MapTypeId.ROADMAP  
+            };  
+            var infoWindow = new google.maps.InfoWindow();
+            var map = new google.maps.Map(document.getElementById("MapArea"), mapProp);  
+
+            var myLatlng = new google.maps.LatLng(latvar, longvar);
+
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map
+            });
+
+            (function (marker) {
+                // add a on marker click event
+                google.maps.event.addListener(marker, "click", function (e) {
+                    //show description
+   
+                    infoWindow.open(map, marker);
+                });
+            })(marker);
+        }  
+    </script>
+    <script>  
+        function MyFunction(latval, longval) {
+
+            document.getElementById("MapArea").style.display = "block";
+            initialize(latval, longval);
+
+        }
+    </script> 
 </head>
 <body>
     <form id="form1" runat="server">
@@ -67,7 +105,7 @@
                                           <div class="col-md-3">
                                               <asp:Label ID="lblRoadType" runat="server" Text="N/A"></asp:Label></div>
                                           <div class="col-md-3">Location :</div>
-                                          <div class="col-md-3">Map implementation</div>
+                                          <div class="col-md-3" id="MapArea" style="display:none;height:200px;width:200px;"></div>
                                       </div>
                                       <br />
                                       <div class="row">

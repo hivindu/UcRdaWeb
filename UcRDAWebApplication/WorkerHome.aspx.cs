@@ -59,6 +59,7 @@ namespace UcRDAWebApplication
                     lblIssueType.Text = "Under Construction"; break;
             }
             dlStatus.SelectedValue = issue.Status;
+            BindMap(issue.Lat, issue.Long);
         }
 
         protected string IMageConvert(byte[] arrayOdByte)
@@ -67,6 +68,13 @@ namespace UcRDAWebApplication
             string imgDataURL = string.Format("data:image/png;base64,{0}", imreBase64Data);
 
             return imgDataURL;
+        }
+
+        private void BindMap(double varLat,double varLong) 
+        {
+            string lat = Convert.ToString(varLat);
+            string log = Convert.ToString(varLong);
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "MyFunction(" + lat + "," + log + ")", true);
         }
 
         private void CleanData()
