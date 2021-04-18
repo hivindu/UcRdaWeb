@@ -13,5 +13,26 @@ namespace UcRDAWebApplication
         {
 
         }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BindGrid()
+        {
+            
+        }
+
+        private void BindDetrails()
+        { }
+
+        protected string IMageConvert(byte[] arrayOdByte)
+        {
+            string imreBase64Data = Convert.ToBase64String(arrayOdByte);
+            string imgDataURL = string.Format("data:image/png;base64,{0}", imreBase64Data);
+
+            return imgDataURL;
+        }
     }
 }

@@ -53,5 +53,26 @@ namespace UcRDAWebApplication.Controllers
 
             return TaskList;
         }
+
+        public static List<Work> GetTaskByWorkerId(string Id)
+        {
+            List<Work> TaskList = new List<Work>();
+
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:7000/");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("Work/GetTaskByUserId/" + Id+"").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var task = response.Content.ReadAsStringAsync().Result;
+                TaskList = JsonConvert.DeserializeObject<List<Work>>(task);
+            }
+            else
+            {
+                TaskList = null;
+            }
+
+            return TaskList;
+        }
     }
 }

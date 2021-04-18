@@ -34,7 +34,14 @@
                                </ol>
                          </section>
                           <section class="content-body">
-                              <asp:GridView ID="dgIssueList" runat="server"></asp:GridView>
+                              <asp:GridView ID="dgIssueList" runat="server" AutoGenerateColumns="False" CssClass="table" EnableSortingAndPagingCallbacks="True" ShowHeaderWhenEmpty="True" EmptyDataText = "No Records Found">
+                                  <Columns>
+                                      <asp:BoundField DataField="IssueId" HeaderText="Issue Id" />
+                                      <asp:BoundField DataField="Status" HeaderText="Status" />
+                                      <asp:BoundField DataField="Area" HeaderText="Area" />
+                                      <asp:BoundField DataField="AssignedDate" HeaderText="Assigned Date" />
+                                  </Columns>
+                              </asp:GridView>
 
                               <div class="row">
                                   <div class="col-md-12" style="box-shadow:0px 1px 1px 0px;border:0px;">
@@ -70,7 +77,8 @@
                                               <asp:DropDownList ID="dlStatus" runat="server">
                                                   <asp:ListItem>Processing</asp:ListItem>
                                                   <asp:ListItem>Done</asp:ListItem>
-                                              </asp:DropDownList><asp:Button ID="btnSubmit" runat="server" Text="Update" CssClass="btn btn-warning" /></div>
+                                                  <asp:ListItem>Working</asp:ListItem>
+                                              </asp:DropDownList><asp:Button ID="btnSubmit" runat="server" Text="Update" CssClass="btn btn-warning" OnClick="btnSubmit_Click" /></div>
                                       </div>
                                   </div>
                               </div>
