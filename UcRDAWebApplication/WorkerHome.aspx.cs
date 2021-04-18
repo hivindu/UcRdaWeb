@@ -19,6 +19,7 @@ namespace UcRDAWebApplication
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             UpdateStatus();
+            CleanData();
         }
 
         private void BindGrid()
@@ -39,6 +40,7 @@ namespace UcRDAWebApplication
             lblArea.Text= (dgIssueList.Rows[e.NewSelectedIndex].Cells[4].Text).ToString();
             lblId.Text = id;
             BindDetails(iid);
+            
         }
 
         private void BindDetails(string issueId)
@@ -84,11 +86,38 @@ namespace UcRDAWebApplication
 
         private void UpdateStatus()
         {
-            string id = lblId.Text;
+            Users us = UserController.GetUSerById(Convert.ToString(Session["id"]));
+            Work w = new Work();
+            w.Id = lblId.Text;
+            w.UserUd = Convert.ToString(Session["id"]);
+            w.IssueId = lblIId.Text;
+            w.Status = dlStatus.SelectedValue;
+            w.Area = lblArea.Text;
+            w.AssignedDate = Convert.ToDateTime(lblAssignedDate.Text);
+            w.WorkerName = us.Name;
+
+            bool res = WorkController.UpdateStatus(w);
+            if (res)
+            {
+                Session["success"] = "Successfuly updated!";
+            }
+            else {
+                Session["error"] = "Couldn't Update!";
+            }
         }
 
         private void CleanData()
-        { }
+        {
+            lblArea.Text = "N/A";
+            lblAssignedDate.Text = "N/A";
+            lblDate.Text = "N/A";
+            lblId.Text = "N/A";
+            lblIId.Text = "N/A";
+            lblIssueType.Text = "N/A";
+            lblProvince.Text = "N/A";
+            lblRoadType.Text = "N/A";
+            imgIssue.ImageUrl = null;
+        }
         
     }
 }

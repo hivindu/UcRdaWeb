@@ -70,6 +70,7 @@
                                <ol class="breadcrumb">
                                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                                </ol>
+
                          </section>
                           <section class="content-body">
                               <asp:GridView ID="dgIssueList" runat="server" AutoGenerateColumns="False" CssClass="table" AutoGenerateSelectButton="True" ShowHeaderWhenEmpty="True" EmptyDataText = "No Records Found" OnSelectedIndexChanging="dgIssueList_SelectedIndexChanging">
@@ -81,7 +82,34 @@
                                       <asp:BoundField DataField="AssignedDate" HeaderText="Assigned Date" />
                                   </Columns>
                               </asp:GridView>
-
+                              <br />
+                               <%
+                                        if (Session["error"] != null)
+                                        {
+                                            string error = Convert.ToString(Session["error"]);
+                                            lblErr.Text = error;
+                                        %>
+                                        <div class='alert alert-danger alert-dismissible'>
+                                          <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                                          <h4><i class='icon fa fa-warning'></i> Error!</h4>
+                                            <asp:Label ID="lblErr" runat="server" Text=""></asp:Label>
+                                        </div>
+                                        <%
+                                                Session["error"] = null;
+                                            }
+                                            if(Session["success"]!=null)
+                                            {
+                                                lblSuc.Text = Convert.ToString(Session["success"]);
+                                          %>
+                                        <div class='alert alert-success alert-dismissible'>
+                                          <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                                          <h4><i class='icon fa fa-check'></i> Success!</h4>
+                                            <asp:Label ID="lblSuc" runat="server" Text=""></asp:Label>
+                                        </div>
+                                        <%
+                                                Session["success"] = null;
+                                            }
+                                        %>
                               <div class="row">
                                   <div class="col-md-12" style="box-shadow:0px 1px 1px 0px;border:0px;">
                                       <h3>More Informations</h3>
