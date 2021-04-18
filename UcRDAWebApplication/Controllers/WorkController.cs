@@ -74,5 +74,25 @@ namespace UcRDAWebApplication.Controllers
 
             return TaskList;
         }
+
+        public static bool UpdateStatus(Work work)
+        {
+            bool res = false;
+
+            client = new HttpClient();
+            Work u = work;
+            client.BaseAddress = new Uri("http://localhost:7000/");
+            var response = client.PutAsJsonAsync("Work", u).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                res = true;
+            }
+            else
+            {
+                res = false;
+            }
+
+            return res;
+        }
     }
 }

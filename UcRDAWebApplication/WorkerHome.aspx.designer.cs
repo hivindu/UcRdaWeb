@@ -42,13 +42,13 @@ namespace UcRDAWebApplication
         protected global::System.Web.UI.WebControls.Image imgIssue;
 
         /// <summary>
-        /// lblProvince control.
+        /// lblIId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProvince;
+        protected global::System.Web.UI.WebControls.Label lblIId;
 
         /// <summary>
         /// lblDate control.
@@ -60,13 +60,13 @@ namespace UcRDAWebApplication
         protected global::System.Web.UI.WebControls.Label lblDate;
 
         /// <summary>
-        /// lblIssueType control.
+        /// lblAssignedDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIssueType;
+        protected global::System.Web.UI.WebControls.Label lblAssignedDate;
 
         /// <summary>
         /// lblRoadType control.
@@ -76,6 +76,42 @@ namespace UcRDAWebApplication
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRoadType;
+
+        /// <summary>
+        /// lblIssueType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIssueType;
+
+        /// <summary>
+        /// lblId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblId;
+
+        /// <summary>
+        /// lblArea control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblArea;
+
+        /// <summary>
+        /// lblProvince control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblProvince;
 
         /// <summary>
         /// dlStatus control.

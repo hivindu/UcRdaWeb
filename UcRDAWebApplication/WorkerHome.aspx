@@ -74,6 +74,7 @@
                           <section class="content-body">
                               <asp:GridView ID="dgIssueList" runat="server" AutoGenerateColumns="False" CssClass="table" AutoGenerateSelectButton="True" ShowHeaderWhenEmpty="True" EmptyDataText = "No Records Found" OnSelectedIndexChanging="dgIssueList_SelectedIndexChanging">
                                   <Columns>
+                                      <asp:BoundField DataField="Id" HeaderText="Id" />
                                       <asp:BoundField DataField="IssueId" HeaderText="Issue Id" />
                                       <asp:BoundField DataField="Status" HeaderText="Status" />
                                       <asp:BoundField DataField="Area" HeaderText="Area" />
@@ -87,43 +88,59 @@
                                       <hr />
                                       <div class="row">
                                           <div class="col-md-3">Image :</div>
-                                          <div class="col-md-3"> <asp:Image ID="imgIssue" runat="server" Height="150px" Width="150px"/></div>
-                                          <div class="col-md-3">Province :</div>
-                                          <div class="col-md-3">
-                                              <asp:Label ID="lblProvince" runat="server" Text="N/A"></asp:Label></div>
+                                          <div class="col-md-3"> <asp:Image ID="imgIssue" runat="server" Height="200px" Width="200px"/></div>
+                                          <div class="col-md-3">Location :</div>
+                                          <div class="col-md-3" id="MapArea" style="display:none;height:200px;width:200px;">
+                                              <asp:Label ID="lblIId" runat="server" Text="" Visible="false"></asp:Label>
+                                          </div>
+                                          
                                       </div><br />
                                       <div class="row">
-                                          <div class="col-md-3">Date :</div>
+                                          <div class="col-md-3">Reported Date :</div>
                                           <div class="col-md-3"> <asp:Label ID="lblDate" runat="server" Text="N/A"></asp:Label></div>
-                                          <div class="col-md-3">Issue Type :</div>
+                                          <div class="col-md-3">Assigned Date :</div>
                                           <div class="col-md-3">
-                                              <asp:Label ID="lblIssueType" runat="server" Text="N/A"></asp:Label>
+                                              <asp:Label ID="lblAssignedDate" runat="server" Text="N/A"></asp:Label>
                                           </div>
+                                          
                                       </div><br />
                                       <div class="row">
                                           <div class="col-md-3">Road Type :</div>
                                           <div class="col-md-3">
                                               <asp:Label ID="lblRoadType" runat="server" Text="N/A"></asp:Label></div>
-                                          <div class="col-md-3">Location :</div>
-                                          <div class="col-md-3" id="MapArea" style="display:none;height:200px;width:200px;"></div>
+                                          <div class="col-md-3">Issue Type :</div>
+                                          <div class="col-md-3">
+                                              <asp:Label ID="lblIssueType" runat="server" Text="N/A"></asp:Label>
+                                              <asp:Label ID="lblId" runat="server" Text="" Visible="false"></asp:Label>
+                                          </div>       
+                                      </div>
+                                      <br />
+                                      <div class="row">
+                                          <div class="col-md-3">Area :</div>
+                                          <div class="col-md-3">
+                                              <asp:Label ID="lblArea" runat="server" Text="N/A"></asp:Label></div>
+                                          <div class="col-md-3">Province :</div>
+                                          <div class="col-md-3">
+                                              <asp:Label ID="lblProvince" runat="server" Text="N/A"></asp:Label></div>
                                       </div>
                                       <br />
                                       <div class="row">
                                           <div class="col-md-6"></div>
                                           <div class="col-md-3">Update Status</div>
-                                          <div class="col-md-3">
+                                          <div class="col-md-2">
                                               <asp:DropDownList ID="dlStatus" runat="server">
                                                   <asp:ListItem>Processing</asp:ListItem>
                                                   <asp:ListItem>Done</asp:ListItem>
                                                   <asp:ListItem>Working</asp:ListItem>
-                                              </asp:DropDownList><asp:Button ID="btnSubmit" runat="server" Text="Update" CssClass="btn btn-warning" OnClick="btnSubmit_Click" /></div>
+                                                  
+                                              </asp:DropDownList></div>
+                                          <div class="col-md-1 pull-left"><asp:Button ID="btnSubmit" runat="server" Text="Update" CssClass="btn btn-warning" OnClick="btnSubmit_Click" /></div>
                                       </div>
                                   </div>
+                                  </div>
+                              </section>
                               </div>
-                          </section>
-                      </div>
-                 
-
+                        
           <%}
             else {
                 Response.Redirect("Login.aspx");

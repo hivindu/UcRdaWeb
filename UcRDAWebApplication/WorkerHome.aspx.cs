@@ -18,7 +18,7 @@ namespace UcRDAWebApplication
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-
+            UpdateStatus();
         }
 
         private void BindGrid()
@@ -34,7 +34,11 @@ namespace UcRDAWebApplication
         protected void dgIssueList_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
             string id = (dgIssueList.Rows[e.NewSelectedIndex].Cells[1].Text).ToString();
-            BindDetails(id);
+            string iid = (dgIssueList.Rows[e.NewSelectedIndex].Cells[2].Text).ToString();
+            lblAssignedDate.Text = (dgIssueList.Rows[e.NewSelectedIndex].Cells[5].Text).ToString();
+            lblArea.Text= (dgIssueList.Rows[e.NewSelectedIndex].Cells[4].Text).ToString();
+            lblId.Text = id;
+            BindDetails(iid);
         }
 
         private void BindDetails(string issueId)
@@ -42,7 +46,8 @@ namespace UcRDAWebApplication
             IssueController controller = new IssueController();
 
             Issue issue = controller.GetIssueById(issueId);
-
+            lblIId.Text = issueId;
+            
             lblProvince.Text = issue.Province;
             lblRoadType.Text = issue.RoadType;
             lblDate.Text = issue.Date;
@@ -75,6 +80,11 @@ namespace UcRDAWebApplication
             string lat = Convert.ToString(varLat);
             string log = Convert.ToString(varLong);
             Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "MyFunction(" + lat + "," + log + ")", true);
+        }
+
+        private void UpdateStatus()
+        {
+            string id = lblId.Text;
         }
 
         private void CleanData()
