@@ -34,6 +34,7 @@ namespace UcRDAWebApplication
             btnAssignToWorker.Enabled = false;
             btnRemove.Enabled = false;
             dlWorkers.Enabled = false;
+            
         }
 
         public void InitializeGrid()

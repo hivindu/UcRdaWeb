@@ -19,7 +19,7 @@ namespace UcRDAWebApplication.Controllers
 
             client = new HttpClient();
             Work p = work;
-            client.BaseAddress = new Uri("http://localhost:7000/");
+            client.BaseAddress = new Uri("https://hivi-99-apigateway-3oxui.ondigitalocean.app/");
             var response = client.PostAsJsonAsync("Work", p).Result;
             if (response.IsSuccessStatusCode)
             {
@@ -38,7 +38,7 @@ namespace UcRDAWebApplication.Controllers
             List<Work> TaskList = new List<Work>();
 
             client = new HttpClient();
-            client.BaseAddress = new Uri("http://localhost:7000/");
+            client.BaseAddress = new Uri("https://hivi-99-apigateway-3oxui.ondigitalocean.app/");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = client.GetAsync("Work/GetTaskByArea/" + area+"").Result;
             if (response.IsSuccessStatusCode)
@@ -59,7 +59,7 @@ namespace UcRDAWebApplication.Controllers
             List<Work> TaskList = new List<Work>();
 
             client = new HttpClient();
-            client.BaseAddress = new Uri("http://localhost:7000/");
+            client.BaseAddress = new Uri("https://hivi-99-apigateway-3oxui.ondigitalocean.app/");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = client.GetAsync("Work/GetTaskByUserId/" + Id+"").Result;
             if (response.IsSuccessStatusCode)
@@ -81,7 +81,7 @@ namespace UcRDAWebApplication.Controllers
 
             client = new HttpClient();
             Work u = work;
-            client.BaseAddress = new Uri("http://localhost:7000/");
+            client.BaseAddress = new Uri("https://hivi-99-apigateway-3oxui.ondigitalocean.app/");
             var response = client.PutAsJsonAsync("Work", u).Result;
             if (response.IsSuccessStatusCode)
             {
