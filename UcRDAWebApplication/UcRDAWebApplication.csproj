@@ -221,6 +221,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="argon-design-system.css" />
+    <Content Include="argon-design-system.min.css" />
     <Content Include="AssignedTask.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -228,6 +230,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
+    <Content Include="font-awesome.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -240,8 +243,11 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Image\finalise design.png" />
     <Content Include="Logout.aspx" />
+    <Content Include="nucleo-icons.css" />
+    <Content Include="nucleo-svg.css" />
     <Content Include="WorkerHome.aspx" />
     <Content Include="Workers.aspx" />
+    <Content Include="argon-design-system.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Image\front.jpg" />
     <Content Include="AdminHome.aspx" />
@@ -291,7 +297,6 @@
     <Compile Include="AssignedTask.aspx.designer.cs">
       <DependentUpon>AssignedTask.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\ApproveController.cs" />
     <Compile Include="Controllers\IssueController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WorkController.cs" />
@@ -326,7 +331,6 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Approve.cs" />
     <Compile Include="Models\Issue.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Models\Work.cs" />
