@@ -24,7 +24,7 @@ namespace UcRDAWebApplication.Controllers
             List<Issue> Issuelist = new List<Issue>();
             
             client = new HttpClient();
-            client.BaseAddress = new Uri("https://hivi-99-apigateway-3oxui.ondigitalocean.app/");
+            client.BaseAddress = new Uri("https://hivi-99-apigateway-gww2g.ondigitalocean.app");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = client.GetAsync("Issue/GetApprovedIssuesByAdminArea/" + area + "").Result;
             if (response.IsSuccessStatusCode)
@@ -45,7 +45,7 @@ namespace UcRDAWebApplication.Controllers
             Issue issue = new Issue();
 
             client = new HttpClient();
-            client.BaseAddress = new Uri("https://hivi-99-apigateway-3oxui.ondigitalocean.app/");
+            client.BaseAddress = new Uri("https://hivi-99-apigateway-gww2g.ondigitalocean.app");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = client.GetAsync("Issue/" + Id + "").Result;
             if (response.IsSuccessStatusCode)
@@ -66,7 +66,7 @@ namespace UcRDAWebApplication.Controllers
             List<Issue> Issuelist = new List<Issue>();
 
             client = new HttpClient();
-            client.BaseAddress = new Uri("https://hivi-99-apigateway-3oxui.ondigitalocean.app/");
+            client.BaseAddress = new Uri("https://hivi-99-apigateway-gww2g.ondigitalocean.app");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = client.GetAsync("Issue/GetAssignedIssuesRDA/" + area + "").Result;
             if (response.IsSuccessStatusCode)
@@ -88,7 +88,7 @@ namespace UcRDAWebApplication.Controllers
 
             client = new HttpClient();
             Issue p = issue;
-            client.BaseAddress = new Uri("https://hivi-99-apigateway-3oxui.ondigitalocean.app/");
+            client.BaseAddress = new Uri("https://hivi-99-apigateway-gww2g.ondigitalocean.app");
             var response = client.PutAsJsonAsync("Issue", p).Result;
             if (response.IsSuccessStatusCode)
             {

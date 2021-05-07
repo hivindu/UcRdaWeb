@@ -21,7 +21,7 @@ namespace UcRDAWebApplication.Controllers
         {
             Users uc = null;
             client = new HttpClient();
-            client.BaseAddress = new Uri("https://hivi-99-apigateway-3oxui.ondigitalocean.app/");
+            client.BaseAddress = new Uri("https://hivi-99-apigateway-gww2g.ondigitalocean.app");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = client.GetAsync("UCRDAUser/GetUserByCredentials/"+nic+"/"+pw+"").Result;
             if(response.IsSuccessStatusCode)
@@ -41,7 +41,7 @@ namespace UcRDAWebApplication.Controllers
         {
             List<Users> users = null;
             client = new HttpClient();
-            client.BaseAddress = new Uri("https://hivi-99-apigateway-3oxui.ondigitalocean.app/");
+            client.BaseAddress = new Uri("https://hivi-99-apigateway-gww2g.ondigitalocean.app");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = client.GetAsync("UCRDAUser/GetWorkersByTypeAndArea/" + area+"").Result;
             if (response.IsSuccessStatusCode)
@@ -60,7 +60,7 @@ namespace UcRDAWebApplication.Controllers
         {
             List<Users> users = null;
             client = new HttpClient();
-            client.BaseAddress = new Uri("https://hivi-99-apigateway-3oxui.ondigitalocean.app//");
+            client.BaseAddress = new Uri("https://hivi-99-apigateway-gww2g.ondigitalocean.app");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = client.GetAsync("UCRDAUser/GetAllWorkersByTypeAndArea/" + area + "/"+work+"").Result;
             if (response.IsSuccessStatusCode)
@@ -80,7 +80,7 @@ namespace UcRDAWebApplication.Controllers
         {
             Users use=null;
             client = new HttpClient();
-            client.BaseAddress = new Uri("https://hivi-99-apigateway-3oxui.ondigitalocean.app/");
+            client.BaseAddress = new Uri("https://hivi-99-apigateway-gww2g.ondigitalocean.app");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = client.GetAsync("UCRDAUser/"+id+ "").Result;
             if (response.IsSuccessStatusCode)
@@ -102,7 +102,7 @@ namespace UcRDAWebApplication.Controllers
 
             client = new HttpClient();
             Users u = user;
-            client.BaseAddress = new Uri("https://hivi-99-apigateway-3oxui.ondigitalocean.app/");
+            client.BaseAddress = new Uri("https://hivi-99-apigateway-gww2g.ondigitalocean.app");
             var response = client.PostAsJsonAsync("UCRDAUser", u).Result;
             if (response.IsSuccessStatusCode)
             {
