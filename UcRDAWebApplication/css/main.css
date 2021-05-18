@@ -6,13 +6,13 @@
 [ FONT ]*/
 
 @font-face {
-  font-family: Ubuntu-Regular;
-  src: url('../fonts/ubuntu/Ubuntu-Regular.ttf'); 
+    font-family: Ubuntu-Regular;
+    src: url('../fonts/ubuntu/Ubuntu-Regular.ttf');
 }
 
 @font-face {
-  font-family: Ubuntu-Bold;
-  src: url('../fonts/ubuntu/Ubuntu-Bold.ttf'); 
+    font-family: Ubuntu-Bold;
+    src: url('../fonts/ubuntu/Ubuntu-Bold.ttf');
 }
 
 
@@ -22,120 +22,164 @@
 [ RESTYLE TAG ]*/
 
 * {
-	margin: 0px; 
-	padding: 0px; 
-	box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
 body, html {
-	height: 100%;
-	font-family: Ubuntu-Regular, sans-serif;
+    height: 100%;
+    font-family: Ubuntu-Regular, sans-serif;
 }
 
 /*---------------------------------------------*/
 a {
-	font-family: Ubuntu-Regular;
-	font-size: 14px;
-	line-height: 1.7;
-	color: #666666;
-	margin: 0px;
-	transition: all 0.4s;
-	-webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
+    font-family: Ubuntu-Regular;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666666;
+    margin: 0px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
 }
 
-a:focus {
-	outline: none !important;
-}
+    a:focus {
+        outline: none !important;
+    }
 
-a:hover {
-	text-decoration: none;
-  color: #fff;
-}
+    a:hover {
+        text-decoration: none;
+        color: #fff;
+    }
 
 /*---------------------------------------------*/
-h1,h2,h3,h4,h5,h6 {
-	margin: 0px;
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
 }
 
 p {
-	font-family: Ubuntu-Regular;
-	font-size: 14px;
-	line-height: 1.7;
-	color: #666666;
-	margin: 0px;
+    font-family: Ubuntu-Regular;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666666;
+    margin: 0px;
 }
 
 ul, li {
-	margin: 0px;
-	list-style-type: none;
+    margin: 0px;
+    list-style-type: none;
 }
 
 
 /*---------------------------------------------*/
 input {
-	outline: none;
-	border: none;
+    outline: none;
+    border: none;
 }
 
 textarea {
-  outline: none;
-  border: none;
+    outline: none;
+    border: none;
 }
 
-textarea:focus, input:focus {
-  border-color: transparent !important;
+    textarea:focus, input:focus {
+        border-color: transparent !important;
+    }
+
+        input:focus::-webkit-input-placeholder {
+            color: transparent;
+        }
+
+        input:focus:-moz-placeholder {
+            color: transparent;
+        }
+
+        input:focus::-moz-placeholder {
+            color: transparent;
+        }
+
+        input:focus:-ms-input-placeholder {
+            color: transparent;
+        }
+
+        textarea:focus::-webkit-input-placeholder {
+            color: transparent;
+        }
+
+        textarea:focus:-moz-placeholder {
+            color: transparent;
+        }
+
+        textarea:focus::-moz-placeholder {
+            color: transparent;
+        }
+
+        textarea:focus:-ms-input-placeholder {
+            color: transparent;
+        }
+
+input::-webkit-input-placeholder {
+    color: #555555;
 }
 
-input:focus::-webkit-input-placeholder { color:transparent; }
-input:focus:-moz-placeholder { color:transparent; }
-input:focus::-moz-placeholder { color:transparent; }
-input:focus:-ms-input-placeholder { color:transparent; }
+input:-moz-placeholder {
+    color: #555555;
+}
 
-textarea:focus::-webkit-input-placeholder { color:transparent; }
-textarea:focus:-moz-placeholder { color:transparent; }
-textarea:focus::-moz-placeholder { color:transparent; }
-textarea:focus:-ms-input-placeholder { color:transparent; }
+input::-moz-placeholder {
+    color: #555555;
+}
 
-input::-webkit-input-placeholder { color: #555555;}
-input:-moz-placeholder { color: #555555;}
-input::-moz-placeholder { color: #555555;}
-input:-ms-input-placeholder { color: #555555;}
+input:-ms-input-placeholder {
+    color: #555555;
+}
 
-textarea::-webkit-input-placeholder { color: #555555;}
-textarea:-moz-placeholder { color: #555555;}
-textarea::-moz-placeholder { color: #555555;}
-textarea:-ms-input-placeholder { color: #555555;}
+textarea::-webkit-input-placeholder {
+    color: #555555;
+}
+
+textarea:-moz-placeholder {
+    color: #555555;
+}
+
+textarea::-moz-placeholder {
+    color: #555555;
+}
+
+textarea:-ms-input-placeholder {
+    color: #555555;
+}
 
 label {
-  margin: 0;
-  display: block;
+    margin: 0;
+    display: block;
 }
 
 /*---------------------------------------------*/
 button {
-	outline: none !important;
-	border: none;
-	background: transparent;
+    outline: none !important;
+    border: none;
+    background: transparent;
 }
 
-button:hover {
-	cursor: pointer;
-}
+    button:hover {
+        cursor: pointer;
+    }
 
 iframe {
-	border: none !important;
+    border: none !important;
 }
 
 
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt1 {
-  font-family: Poppins-Regular;
-  font-size: 13px;
-  color: #e5e5e5;
-  line-height: 1.5;
+    font-family: Poppins-Regular;
+    font-size: 13px;
+    color: #e5e5e5;
+    line-height: 1.5;
 }
 
 
@@ -143,48 +187,46 @@ iframe {
 [ login ]*/
 
 .limiter {
-  width: 100%;
-  margin: 0 auto;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .container-login100 {
-  width: 100%;  
-  min-height: 100vh;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  position: relative;
-  z-index: 1;  
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
 }
 
-.container-login100::before {
-  content: "";
-  display: block;
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: rgba(0,0,0,0.65);
-}
+    .container-login100::before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.65);
+    }
 
 .wrap-login100 {
-  width: 390px;
-  border-radius: 10px;
-  overflow: hidden;
-
-  background: transparent;
+    width: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: transparent;
 }
 
 
@@ -192,218 +234,212 @@ iframe {
 [ Form ]*/
 
 .login100-form {
-  width: 100%;
-  border-radius: 10px;
-  background-color: #fff;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #fff;
 }
 
 .login100-form-logo {
-  font-size: 60px; 
-  color: #333333;
-
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background-color: #fff;
-  margin: 0 auto;
+    font-size: 60px;
+    color: #333333;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 0;
 }
 
 .login100-form-title {
-  font-family: Ubuntu-Bold;
-  font-size: 28px;
-  color: #fff;
-  line-height: 1.2;
-  text-align: center;
-  text-transform: uppercase;
-
-  display: block;
+    font-family: Calibri;
+    font-size: 28px;
+    color: #5c1a75;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+    display: block;
+    font-weight: bold;
 }
 
-
+.login {
+    background: #ffffffc4;
+    padding: 0 5em;
+}
 /*------------------------------------------------------------------
 [ Input ]*/
-
 .wrap-input100 {
-  width: 100%;
-  position: relative;
-  border-bottom: 1px solid #e6e6e6;
-  padding: 29px 0;
+    width: 100%;
+    position: relative;
+    border-bottom: 1px solid #a7a7a7;
+    padding: 29px 0;
 }
 
 .input100 {
-  font-family: Ubuntu-Regular;
-  font-size: 20px;
-  color: #555555;
-  line-height: 1.2;
-
-  display: block;
-  width: 100%;
-  height: 50px;
-  background: transparent;
-  padding: 0 10px 0 80px;
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
+    font-family: Ubuntu-Regular;
+    font-size: 20px;
+    color: #382240;
+    line-height: 1.2;
+    display: block;
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    padding: 0 10px 0 80px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
 }
 
-/*---------------------------------------------*/ 
+/*---------------------------------------------*/
 .focus-input100 {
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
 }
 
-.focus-input100::before {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 0;
-  height: 1px;
+    .focus-input100::before {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        -webkit-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        transition: all 0.4s;
+        background: #d41872;
+        background: -webkit-linear-gradient(left,  #5c1a75, #8a25b1, #c56de8);
+        background: -o-linear-gradient(left,  #5c1a75, #8a25b1, #c56de8);
+        background: -moz-linear-gradient(left,  #5c1a75, #8a25b1, #c56de8);
+        background: linear-gradient(left,  #5c1a75, #8a25b1, #c56de8);
+    }
 
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
-
-  background: #d41872;
-  background: -webkit-linear-gradient(left, #a445b2, #d41872, #fa4299);
-  background: -o-linear-gradient(left, #a445b2, #d41872, #fa4299);
-  background: -moz-linear-gradient(left, #a445b2, #d41872, #fa4299);
-  background: linear-gradient(left, #a445b2, #d41872, #fa4299);
-}
-
-.focus-input100::after {
-  font-family: Linearicons-Free;
-  font-size: 18px;
-  color: #999999;
-
-  content: attr(data-placeholder);
-  display: block;
-  width: 100%;
-  position: absolute;
-  top: 40px;
-  left: 35px;
- 
-
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
-}
+    .focus-input100::after {
+        font-family: Linearicons-Free;
+        font-size: 24px;
+        color: #999999;
+        font-weight: bold;
+        content: attr(data-placeholder);
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 40px;
+        left: 25px;
+        -webkit-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        transition: all 0.4s;
+    }
 
 .input100:focus {
-  padding-left: 60px;
+    padding-left: 60px;
 }
 
-.input100:focus + .focus-input100::after {
-  left: 23px;
-  color: #d41872;
-}
+    .input100:focus + .focus-input100::after {
+        left: 23px;
+        color: #3a3a3a;
+    }
 
-.input100:focus + .focus-input100::before {
-  width: 100%;
-}
+    .input100:focus + .focus-input100::before {
+        width: 100%;
+    }
 
 .has-val.input100 + .focus-input100::after {
-  left: 23px;
-  color: #d41872;
+    left: 23px;
+    color: #d41872;
 }
 
 .has-val.input100 + .focus-input100::before {
-  width: 100%;
+    width: 100%;
 }
 
 .has-val.input100 {
-  padding-left: 60px;
+    padding-left: 60px;
 }
 
 
 /*------------------------------------------------------------------
 [ Button ]*/
 .container-login100-form-btn {
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .login100-form-btn {
-  font-family: Ubuntu-Bold;
-  font-size: 18px;
-  color: #fff;
-  line-height: 1.2;
-  text-transform: uppercase;
-
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
-  min-width: 160px;
-  height: 42px;
-  border-radius: 21px;
-
-  background: #d41872;
-  background: -webkit-linear-gradient(left, #a445b2, #d41872, #fa4299);
-  background: -o-linear-gradient(left, #a445b2, #d41872, #fa4299);
-  background: -moz-linear-gradient(left, #a445b2, #d41872, #fa4299);
-  background: linear-gradient(left, #a445b2, #d41872, #fa4299);
-  position: relative;
-  z-index: 1;
-
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
+    font-family: Ubuntu-Bold;
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    min-width: 160px;
+    height: 42px;
+    border-radius: 21px;
+    background: #8a25b1;
+    background: -webkit-linear-gradient(bottom, #5c1a75, #8a25b1, #c56de8);
+    background: -o-linear-gradient(bottom, #5c1a75, #8a25b1, #c56de8);
+    background: -moz-linear-gradient(bottom, #5c1a75, #8a25b1, #c56de8);
+    background: linear-gradient(bottom, #5c1a75, #8a25b1, #c56de8);
+    position: relative;
+    z-index: 1;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    margin-top: 32px;
+    margin-bottom: 32px;
 }
 
-.login100-form-btn::before {
-  content: "";
-  display: block;
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  border-radius: 21px;
-  background-color: #555555;
-  top: 0;
-  left: 0;
-  opacity: 0;
+    .login100-form-btn::before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        border-radius: 21px;
+        background-color: #555555;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        -webkit-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        transition: all 0.4s;
+    }
 
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
-}
+    .login100-form-btn:hover {
+        background-color: transparent;
+    }
 
-.login100-form-btn:hover {
-  background-color: transparent;
-}
-
-.login100-form-btn:hover:before {
-  opacity: 1;
-}
+        .login100-form-btn:hover:before {
+            opacity: 1;
+        }
 
 
 
@@ -411,69 +447,188 @@ iframe {
 [ Alert validate ]*/
 
 .validate-input {
-  position: relative;
+    position: relative;
 }
 
 .alert-validate::before {
-  content: attr(data-validate);
-  position: absolute;
-  max-width: 70%;
-  background-color: #fff;
-  border: 1px solid #c80000;
-  border-radius: 2px;
-  padding: 4px 25px 4px 10px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 10px;
-  pointer-events: none;
-
-  font-family: Ubuntu-Bold;
-  color: #c80000;
-  font-size: 13px;
-  line-height: 1.4;
-  text-align: left;
-
-  visibility: hidden;
-  opacity: 0;
-
-  -webkit-transition: opacity 0.4s;
-  -o-transition: opacity 0.4s;
-  -moz-transition: opacity 0.4s;
-  transition: opacity 0.4s;
+    content: attr(data-validate);
+    position: absolute;
+    max-width: 70%;
+    background-color: #fff;
+    border: 1px solid #c80000;
+    border-radius: 2px;
+    padding: 4px 25px 4px 10px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    right: 10px;
+    pointer-events: none;
+    font-family: Ubuntu-Bold;
+    color: #c80000;
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: left;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 0.4s;
+    -o-transition: opacity 0.4s;
+    -moz-transition: opacity 0.4s;
+    transition: opacity 0.4s;
 }
 
 .alert-validate::after {
-  content: "\f12a";
-  font-family: FontAwesome;
-  font-size: 16px;
-  color: #c80000;
-
-  display: block;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 15px;
+    content: "\f12a";
+    font-family: FontAwesome;
+    font-size: 16px;
+    color: #c80000;
+    display: block;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    right: 15px;
 }
 
 .alert-validate:hover:before {
-  visibility: visible;
-  opacity: 1;
+    visibility: visible;
+    opacity: 1;
 }
 
 @media (max-width: 992px) {
-  .alert-validate::before {
-    visibility: visible;
-    opacity: 1;
-  }
+    .alert-validate::before {
+        visibility: visible;
+        opacity: 1;
+    }
 }
 
+/*//////////////////////////////////////////////////////////////////
+    [ AdminHome ]*/
 
+.card-view i {
+    padding:0 1em 0 0;
+}
 
+.card-view p {
+    color:white;
+    font-size:20px;
+}
+
+.navbar {
+    border-radius: 0px !important;
+}
+
+.navbar-inverse {
+    background-color: #240331;
+    border-color: #080808;
+}
+
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    padding: 5px;
+}
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand {
+    color: #fff;
+    background-color: transparent;
+    font-weight: bold;
+    color: white;
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+.nav li a {
+    color: #fff;
+    font-size: 18px;
+}
+
+/*//////////////////////////////////////////////////////////////////
+    [ Issues ]*/
+
+.issue-card {
+    box-shadow: 0px 0px 3px 0px #52036fab;
+    padding: 2em;
+    background: white;
+    border: 5px #08f !important;
+    border-radius: 10px;
+}
+
+.issue-card h3{
+    margin:0 0 1em 0;
+}
+
+.issue-card div{
+    margin-bottom: 0.5em;
+}
+
+.issue-details{
+    font-family:Gotham;
+    font-size: 18px;
+}
+
+.btn-remove {
+    color: #fff;
+    background-color: #cf89f7;
+    border-color: #c374f0;
+    font-family: Gotham;
+    font-size: 16px;
+    padding: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin: 1em;
+    margin-left: 0em;
+    font-variant: small-caps;
+    letter-spacing: 0.5px;
+}
+
+.btn-rda {
+    color: #fff;
+    background-color: #850fc8;
+    border-color: #570784;
+    font-family: Gotham;
+    font-size: 16px;
+    letter-spacing:0.5px;
+    padding: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin: 1em;
+    margin-left: 0em;
+    font-variant: small-caps;
+}
+
+/*//////////////////////////////////////////////////////////////////
+    [ Assigned Task ]*/
+
+tbody tr th {
+    padding: 0.75em;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    font-family: Verdana;
+    background-color: #f3e6ff;
+}
+
+tbody tr td {
+    padding: 0.5em;
+    padding-left: 0.75em;
+    font-family: Verdana;
+    font-size:14px;
+}
+
+/*//////////////////////////////////////////////////////////////////
+    [ Workers ]*/
+
+.form-textarea {
+    border-color: #6600663d;
+    border-width: 1px;
+    border-style: Solid;
+    padding: 0.5em;
+    border-radius: 5px;
+    width:500px;
+}

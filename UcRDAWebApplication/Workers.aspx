@@ -7,6 +7,7 @@
     <title>Workers List</title>
     <link href="Content/bootstrap.css" rel="stylesheet"/>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/jquery-3.4.1.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -20,7 +21,9 @@
         %>
                <nav class="navbar navbar-inverse">
                   <div class="container-fluid">
-                    
+                     <div class="navbar-header">
+                      <a class="navbar-brand" href="#">MyCity</a>
+                    </div>
                     <ul class="nav navbar-nav pull-right">
                       <li ><a href="AdminHome.aspx">Home</a></li>
                       <li><a href="Issues.aspx">Issues</a></li>
@@ -81,31 +84,31 @@
         
                                     <br />
                                     <table border="0">
-                                        <tr style="margin-bottom:2px;">
-                                            <td >Name:</td>
-                                            <td>:<asp:TextBox ID="txtId" runat="server" Visible="false"></asp:TextBox></td>
-                                            <td><asp:TextBox ID="txtName" runat="server" ValidateRequestMode="Enabled"></asp:TextBox></td>
+                                        <tr <%--style="margin-bottom:2px;"--%>>
+                                            <td >Name</td>
+                                            <td>:<asp:TextBox ID="txtId" runat="server" Visible="false" Width="10px"></asp:TextBox></td>
+                                            <td><asp:TextBox ID="txtName" runat="server" ValidateRequestMode="Enabled" CssClass="form-textarea"></asp:TextBox></td>
                                         </tr>
-                                        <tr style="margin-bottom:2px;">
+                                        <tr <%--style="margin-bottom:2px;"--%>>
                                             <td>NIC</td>
                                             <td>:</td>
-                                            <td><asp:TextBox ID="txtNic" runat="server" ValidateRequestMode="Enabled"></asp:TextBox></td>
+                                            <td><asp:TextBox ID="txtNic" runat="server" ValidateRequestMode="Enabled" CssClass="form-textarea"></asp:TextBox></td>
                                         </tr>
                                         <tr style="margin-bottom:2px;">
                                             <td>Location</td>
                                             <td>:</td>
-                                            <td><asp:TextBox ID="txtLocation" runat="server"></asp:TextBox></td>
+                                            <td><asp:TextBox ID="txtLocation" runat="server" CssClass="form-textarea"></asp:TextBox></td>
                                         </tr>
-                                        <tr style="margin-bottom:2px;">
+                                        <tr <%--style="margin-bottom:2px;"--%>>
                                             <td>Password</td>
                                             <td style="align-content:center">:</td>
-                                            <td><asp:TextBox ID="txtPassword" runat="server" ValidateRequestMode="Enabled"></asp:TextBox></td>
+                                            <td><asp:TextBox ID="txtPassword" runat="server" ValidateRequestMode="Enabled" CssClass="form-textarea" TextMode="Password"></asp:TextBox></td>
                                         </tr>
                                         <%
                                             if(type=="rda")
                                             { 
                                             %>
-                                       <tr style="margin-bottom:2px;">
+                                       <tr style="margin-bottom:1em;">
                                             <td>Type</td>
                                             <td>:</td>
                                             <td><asp:DropDownList ID="dlType" runat="server">
@@ -116,19 +119,19 @@
                                         <%} %>
                                         <tr>
                                             <td>
-                                                <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" CssClass="btn btn-success"/></td>
+                                                <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" CssClass="btn btn-success btn-rda"/></td>
                                             
                                             <td>
-                                                <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" CssClass="btn btn-danger"/></td>
+                                                <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" CssClass="btn btn-danger btn-remove"/></td>
                                         </tr>
                                     </table>
                                 </div>
                             </div>
                         <div class="row" style="margin-top:2vh;">
-                            <div class="col-md-12">
+                            <div <%--class="col-md-12"--%> >
                                 <div class="box">
                                     <div class="box-body">
-                                            <asp:GridView ID="dgWorkers" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanging="dgWorkers_SelectedIndexChanging" AutoGenerateColumns="False">
+                                            <asp:GridView ID="dgWorkers" runat="server" AutoGenerateSelectButton="True" ShowHeaderWhenEmpty="True" EmptyDataText = "No Records Found" OnSelectedIndexChanging="dgWorkers_SelectedIndexChanging" AutoGenerateColumns="False">
                                                 <Columns>
                                                     <asp:BoundField AccessibleHeaderText="Id" DataField="Id" HeaderText="Id" />
                                                     <asp:BoundField AccessibleHeaderText="Name" DataField="Name" HeaderText="Name" />

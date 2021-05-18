@@ -13,7 +13,8 @@ namespace UcRDAWebApplication
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["error"] = null;
+            Session["success"] = null;
         }
         
         protected void submitbtn_Click(object sender, EventArgs e)

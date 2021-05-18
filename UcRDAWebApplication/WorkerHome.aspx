@@ -7,7 +7,9 @@
     <title>Home (MyCity Worker)</title>
     <link href="Content/bootstrap.css" rel="stylesheet"/>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <script type="text/javascript" src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyC6v5-2uaq_wusHDktM9ILcqIrlPtnZgEk&sensor=false"></script>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+    <script type="text/javascript" src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBCGsEq8HQQahyPFNHMeickXmKWoJ6h6nw&sensor=false"></script>
     <script>  
         function initialize(latvalue, longvalue) {  
             var latvar = latvalue  
@@ -56,7 +58,7 @@
         <nav class="navbar navbar-inverse">
                   <div class="container-fluid">
                     <div class="navbar-header">
-                      <a class="navbar-brand" href="#">My City</a>
+                      <a class="navbar-brand" href="#">MyCity</a>
                     </div>
                     <ul class="nav navbar-nav pull-right">
                       <li ><a href="WorkerHome.aspx">Home</a></li>
@@ -111,14 +113,14 @@
                                             }
                                         %>
                               <div class="row">
-                                  <div class="col-md-12" style="box-shadow:0px 1px 1px 0px;border:0px;">
+                                  <div class="col-md-12 issue-card" <%--style="box-shadow:0px 1px 1px 0px;border:0px;"--%>>
                                       <h3>More Informations</h3>
                                       <hr />
                                       <div class="row">
-                                          <div class="col-md-3">Image :</div>
-                                          <div class="col-md-3"> <asp:Image ID="imgIssue" runat="server" Height="200px" Width="200px"/></div>
+<%--                                          <div class="col-md-3">Image :</div>--%>
+                                          <div class="col-md-4"> <asp:Image ID="imgIssue" runat="server" Height="200px" Width="300px"/></div>
                                           <div class="col-md-3">Location :</div>
-                                          <div class="col-md-3" id="MapArea" style="display:none;height:200px;width:200px;">
+                                          <div class="col-md-5" id="MapArea" style="display:none;height:250px;width:350px;">
                                               <asp:Label ID="lblIId" runat="server" Text="" Visible="false"></asp:Label>
                                           </div>
                                           

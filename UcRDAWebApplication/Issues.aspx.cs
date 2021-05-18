@@ -113,7 +113,7 @@ namespace UcRDAWebApplication
             bool res = IssueController.UpdateStatus(issu);
             if (res)
             {
-                MessageBox.Show("Success!");
+               // MessageBox.Show("Success!");
                 lblId.Text = "";
                 lblIssueTypeValue.Text = "N/A";
                 lblRoadTypeValue.Text = "N/A";
@@ -125,7 +125,7 @@ namespace UcRDAWebApplication
             }
             else
             {
-                MessageBox.Show("Error!");
+                //MessageBox.Show("Error!");
             }
             BindGrid();
 
@@ -138,7 +138,7 @@ namespace UcRDAWebApplication
 
             if (res)
             {
-                MessageBox.Show("Success!");
+               // MessageBox.Show("Success!");
                 lblId.Text = "";
                 lblIssueTypeValue.Text = "N/A";
                 lblRoadTypeValue.Text = "N/A";
@@ -151,7 +151,7 @@ namespace UcRDAWebApplication
             }
             else
             {
-                MessageBox.Show("Error!");
+                //MessageBox.Show("Error!");
             }
             
         }

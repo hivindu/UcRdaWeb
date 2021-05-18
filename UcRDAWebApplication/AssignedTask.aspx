@@ -14,6 +14,7 @@
         padding: 0px  
       }  
     </style> 
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -25,7 +26,7 @@
         <nav class="navbar navbar-inverse">
                   <div class="container-fluid">
                     <div class="navbar-header">
-                      <a class="navbar-brand" href="#">WebSiteName</a>
+                      <a class="navbar-brand" href="#">MyCity</a>
                     </div>
                     <ul class="nav navbar-nav pull-right">
                       <li ><a href="AdminHome.aspx">Home</a></li>
@@ -53,12 +54,12 @@
          </section>
                <section>
 
-                   <asp:GridView ID="dgAssignedTask" runat="server" AutoGenerateColumns="False" Width="100%">
+                   <asp:GridView ID="dgAssignedTask" runat="server" ShowHeaderWhenEmpty="True" EmptyDataText = "No Records Found" AutoGenerateColumns="False" Width="100%">
                        <Columns>
                            <asp:BoundField DataField="WorkerName" HeaderText="Name" />
-                           <asp:BoundField DataField="IssueId" HeaderText="Issue_Id" />
+                           <asp:BoundField DataField="IssueId" HeaderText="Issue ID" />
                            <asp:BoundField DataField="Status" HeaderText="Status" />
-                           <asp:BoundField DataField="AssignedDate" HeaderText="AssignedDate" />
+                           <asp:BoundField DataField="AssignedDate" HeaderText="Assigned Date" />
                        </Columns>
                    </asp:GridView>
 

@@ -8,7 +8,8 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>  
-   
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+    
     <style type="text/css">  
       html, body, #canvasMap {  
         height: 200px;  
@@ -59,7 +60,7 @@
                                 <li class="active">Issues List</li>
                               </ol>
                             </section>
-                        <asp:GridView ID="dgIssues" runat="server" AutoGenerateColumns="False" CssClass="table table-hover" AutoGenerateSelectButton="True" OnSelectedIndexChanging="dgIssues_SelectedIndexChanging">
+                        <asp:GridView ID="dgIssues" runat="server" AutoGenerateColumns="False" CssClass="table table-hover" ShowHeaderWhenEmpty="True" EmptyDataText = "No Records Found" AutoGenerateSelectButton="True" OnSelectedIndexChanging="dgIssues_SelectedIndexChanging">
                             <Columns>
                                 <asp:BoundField DataField="Id" />
                                 <asp:BoundField AccessibleHeaderText="Province" DataField="Province" HeaderText="Province" />
@@ -80,9 +81,9 @@
                                 <li class="active">Issue List</li>
                               </ol>
                             </section>
-                        <asp:GridView ID="dgIssuesRda" runat="server" AutoGenerateColumns="False" AutoGenerateSelectButton="True" CssClass="table table-hover" OnSelectedIndexChanged="dgIssuesRda_SelectedIndexChanged" OnSelectedIndexChanging="dgIssuesRda_SelectedIndexChanging" SelectedIndex="0">
+                        <asp:GridView ID="dgIssuesRda" runat="server" AutoGenerateColumns="False" AutoGenerateSelectButton="True" ShowHeaderWhenEmpty="True" EmptyDataText = "No Records Found" CssClass="table table-hover" OnSelectedIndexChanged="dgIssuesRda_SelectedIndexChanged" OnSelectedIndexChanging="dgIssuesRda_SelectedIndexChanging" SelectedIndex="0">
                             <Columns>
-                                <asp:BoundField DataField="Id" />
+                                <asp:BoundField DataField="Id" HeaderText="Issue ID" />
                                 <asp:BoundField AccessibleHeaderText="Province" DataField="Province" HeaderText="Province" />
                                 <asp:BoundField DataField="Date" HeaderText="Date" />
                                 <asp:BoundField DataField="RoadType" HeaderText="Road Type" />
@@ -92,39 +93,51 @@
                     <%
                         }
                     %>
-                    <div class="row" style="box-shadow:0px 10px 10px 0px;padding:5px;">
+                    <div class="row issue-card">
                         <h3>Issue Details <i class="fa fa-info-circle" aria-hidden="false" style="font-size:14px"></i></h3>
-                        <div style="margin-bottom:2px;">
+                        <div class="col-md-4">
                             <asp:Label ID="lblId" runat="server" Text=""></asp:Label>
-                            <asp:Label ID="lblImage" runat="server" Text="Image"></asp:Label> : <asp:Image ID="IssueImage" runat="server" Height="200px" Width="200px"/>
+                            <asp:Label ID="lblImage" runat="server" Text=""></asp:Label>  <asp:Image ID="IssueImage" runat="server" Height="200px" Width="300px"/>
                         </div>
-                        <div style="margin-bottom:2px;">
-                            <asp:Label ID="lblProvince" runat="server" Text="Province"></asp:Label> : <asp:Label ID="lblProvinceValue" runat="server" Text=""></asp:Label>
+                        <div class="col-md-8">
+                        <div >
+                            <asp:Label ID="lblProvince" runat="server" Text="Province" CssClass="issue-details"></asp:Label>
+                            :
+                            <asp:Label ID="lblProvinceValue" runat="server" Text="" CssClass="issue-details"></asp:Label>
                         </div>
-                        <div style="margin-bottom:2px;">
-                            <asp:Label ID="lblDate" runat="server" Text="Date"></asp:Label> : <asp:Label ID="lblDateValue" runat="server" Text=""></asp:Label>
-                        </div>
-                        <div style="margin-bottom:2px;">
-                            <asp:Label ID="lblRoadType" runat="server" Text="Road Type"></asp:Label> : <asp:Label ID="lblRoadTypeValue" runat="server" Text=""></asp:Label>
-                        </div>
-                        <div style="margin-bottom:2px;">
-                            <asp:Label ID="lblIssueType" runat="server" Text="Issue Type"></asp:Label> : <asp:Label ID="lblIssueTypeValue" runat="server" Text=""></asp:Label>
-                        </div>
+                        
+                            <div >
+                                <asp:Label ID="lblDate" runat="server" Text="Date" CssClass="issue-details"></asp:Label>
+                                :
+                                <asp:Label ID="lblDateValue" runat="server" Text="" CssClass="issue-details"></asp:Label>
+                            </div>
+                            <div >
+                                <asp:Label ID="lblRoadType" runat="server" Text="Road Type" CssClass="issue-details"></asp:Label>
+                                :
+                                <asp:Label ID="lblRoadTypeValue" runat="server" Text="" CssClass="issue-details"></asp:Label>
+                            </div>
+                            <div style="margin-bottom: 1em;">
+                                <asp:Label ID="lblIssueType" runat="server" Text="Issue Type" CssClass="issue-details"></asp:Label>
+                                :
+                                <asp:Label ID="lblIssueTypeValue" runat="server" Text="" CssClass="issue-details"></asp:Label>
+                            </div>
 
-                        <div style="margin-bottom:2px;">
-                           Actions:
+                            <div >
+                                
                             <%if (type == "rda")
                                 {%>
 
-                            <asp:DropDownList ID="dlWorkers" runat="server" OnSelectedIndexChanged="dlWorkers_SelectedIndexChanged">
-                                <asp:ListItem>- Worker -</asp:ListItem>
-                            </asp:DropDownList> <asp:Button ID="btnAssignToWorker" runat="server" Text="Assign To Worker" CssClass="btn btn-success" OnClick="btnAssignToWorker_Click" />
-                            <% }
-                                else
-                                {%>
-                            <asp:Button ID="btnRemove" runat="server" Text="Remove" CssClass="btn btn-danger" OnClick="btnRemove_Click"/>
-                            <asp:Button ID="btnAssign" runat="server" Text="Assigne To RDA" CssClass="btn btn-success" OnClick="btnAssign_Click" />
-                            <%} %>
+                                <asp:DropDownList ID="dlWorkers" runat="server" OnSelectedIndexChanged="dlWorkers_SelectedIndexChanged">
+                                    <asp:ListItem>- Worker -</asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:Button ID="btnAssignToWorker" runat="server" Text="Assign To Worker" CssClass="btn btn-success" OnClick="btnAssignToWorker_Click" />
+                                <% }
+                                    else
+                                    {%>
+                                <asp:Button ID="btnRemove" runat="server" Text="Remove" CssClass="btn btn-danger btn-remove" OnClick="btnRemove_Click" />
+                                <asp:Button ID="btnAssign" runat="server" Text="Assign To RDA" CssClass="btn btn-success btn-rda" OnClick="btnAssign_Click" />
+                                <%} %>
+                            </div>
                         </div>
                     </div>
                 </div>
