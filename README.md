@@ -10,4 +10,4 @@ This application is developed as my final year sole project. This is the web app
 - Clone this repository to your local machine
 - run application using **Visual studio 2019**
 
-Thank you & Happy Coding :smiley: !
+Happy Coding :smiley: !
